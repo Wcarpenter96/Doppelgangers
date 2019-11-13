@@ -8,47 +8,53 @@ class SignIn extends Component {
     onSubmit = formProps => {
         console.log(formProps);
         this.props.signIn(formProps, () => {
-            this.props.history.push('/counter');
+            this.props.history.push('/Main');
         });
-    }
-
-    renderInput = ({ input }) => {                        
-        return (
-            <div>
-                <h1>I am so cool</h1>
-                <p>Custom form Component</p>
-                <input {...input}/>
-            </div>
-        )
     }
 
     render() {
         const { handleSubmit } = this.props;
 
-        return(
+        return (
             <form onSubmit={handleSubmit(this.onSubmit)}>
-                <fieldset>
-                    <label>Email</label>
-                    <Field
-                        name='email'
-                        type='text'                        
-                        component={this.renderInput}
-                        autoComplete="none"
-                    />
-                </fieldset>
-                <fieldset>
-                    <label>Password</label>
-                    <Field
-                        name='password'
-                        type='password'
-                        component={this.renderInput}
-                        autoComplete="none"
-                    />
-                </fieldset>
-                <div>
-                    {this.props.errorMessage}
+                <h1 className="offset-md-2">Sign in</h1>
+                <div className="form-group row">
+                    <fieldset className="offset-md-2">
+                        <label className="col-sm-2 col-form-label">Email</label>
+                        <div className="col">
+                            <Field
+                                name='email'
+                                type='text'
+                                component='input'
+                                autoComplete='none'
+                            />
+                        </div>
+                    </fieldset>
                 </div>
-                <button>Sign In</button>
+
+                <div className="form-group row">
+                    <fieldset className="offset-md-2">
+                        <label className="col-sm-2 col-form-label">Password</label>
+                        <div className="col">
+                            <Field
+                                name='password'
+                                type='password'
+                                component='input'
+                                autoComplete='none'
+                            />
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
+                    <div className="offset-md-2">{this.props.errorMessage}</div>
+                </div>
+
+                <div className="form-group row">
+                    <div className="col offset-md-2">
+                        <button type="submit" className="btn btn-primary">Sign in</button>
+                    </div>
+                </div>
             </form>
         );
     }
@@ -59,6 +65,6 @@ function mapStateToProps(state) {
 }
 
 export default compose(
-    connect(mapStateToProps, {signIn}),
+    connect(mapStateToProps, { signIn }),
     reduxForm({ form: 'signin' })
 )(SignIn);
