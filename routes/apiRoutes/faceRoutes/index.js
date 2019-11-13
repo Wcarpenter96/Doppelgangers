@@ -67,7 +67,9 @@ router.post('/add', function (req, res) {
 
 router.post('/search', async function (req, res) {
 
+   const user_id = req.body.user_id
    const image_url = req.body.image_url
+
    const searchData = {
       api_key: api_key,
       api_secret: api_secret,
@@ -86,6 +88,16 @@ router.post('/search', async function (req, res) {
             try {
                for (let i = 0; i < results.length; i++) {
                   let celeb = await db.Celeb.find({ token: results[i].face_token })
+                  let match = await db.Match.create({
+                     user: user_id,
+                     celeb: celeb[0]._id,
+                     confidence: results[i].confidence
+                  })
+                  console.log('match: ', match)
+                  let match_id = await db.Match.find({ user: user_id , celeb: celeb[0]._id})
+                  let addMatch = await db.User.findOneAndUpdate({ _id: user_id},
+                     { $push: { matches: match_id } }, { new: true });
+                  console.log('addMatch: ', addMatch)
                   celebs.push({ confidence: results[i].confidence, celeb: celeb[0].name })
                }
                response(celebs)
