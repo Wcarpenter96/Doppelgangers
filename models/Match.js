@@ -13,7 +13,7 @@ const MatchSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Celeb'
     },
-    confidence: { type: Number, min: 2, max: 8 },
+    confidence: Number
 });
 
 const Match = mongoose.model('Match', MatchSchema);
