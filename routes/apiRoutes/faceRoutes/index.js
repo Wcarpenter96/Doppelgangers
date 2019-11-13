@@ -31,7 +31,6 @@ router.post('/add', function (req, res) {
             console.log(err);
          }
          const face_token = JSON.parse(detectBody).faces[0].face_token;
-         console.log('face_token: ', face_token)
 
          db.Celeb.create({
             name: celeb_name,
@@ -93,11 +92,9 @@ router.post('/search', async function (req, res) {
                      celeb: celeb[0]._id,
                      confidence: results[i].confidence
                   })
-                  console.log('match: ', match)
-                  let match_id = await db.Match.find({ user: user_id , celeb: celeb[0]._id})
-                  let addMatch = await db.User.findOneAndUpdate({ _id: user_id},
+                  let match_id = await db.Match.find({ user: user_id, celeb: celeb[0]._id })
+                  let addMatch = await db.User.findOneAndUpdate({ _id: user_id },
                      { $push: { matches: match_id } }, { new: true });
-                  console.log('addMatch: ', addMatch)
                   celebs.push({ confidence: results[i].confidence, celeb: celeb[0].name })
                }
                response(celebs)
@@ -111,6 +108,39 @@ router.post('/search', async function (req, res) {
    matches.then(function (celebrities) {
       res.json(celebrities)
    });
+})
+
+router.get('/user/:id', async function (req, res) {
+   const user_id = req.params.id
+   try {
+      let user = await db.Match.find({ user: user_id }).populate('celeb')
+      const matches = []
+      for (let i = 0; i < user.length; i++) {
+         const { name, url } = user[i].celeb
+         const { confidence } = user[i]
+         matches.push({ name, url, confidence })
+      }
+      res.json(matches)
+   } catch (e) {
+      console.log(e)
+   }
+})
+
+router.get('/all', async function (req, res) {
+   try {
+      const data = []
+      let users = await db.User.find()
+      for (let i = 0; i < users.length; i++) {
+         const { _id, email, url } = users[i]
+         let celeb = await db.Match.findOne({ user: _id }).populate('celeb')
+         const celeb_name = celeb.celeb.name
+         const celeb_url = celeb.celeb.url
+         data.push({ email, url, celeb_name, celeb_url })
+      }
+      res.json(data)
+   } catch (e) {
+      console.log(e)
+   }
 })
 
 module.exports = router;
