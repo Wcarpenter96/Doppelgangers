@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './Jumbotron.css';
+
 
 
 
@@ -8,15 +10,15 @@ class Jumbotron extends Component {
         if (!this.props.auth) {
             return (
                 <div className="container">
-                    <h1 className="display-4">Which celebs looks like you?</h1>
-                    <p className="lead">Sign in to get the answer!</p>
+                    <h1 className="display-3 text-center">Which celebs looks like you?</h1>
+                    <p className="text-center">Sign in or Sign up below to get the answer!</p>
                 </div>
             );
         } else {
             return (
                 <div className="container">
-                    <h1 className="display-4">Upload a Photo</h1>
-                    <p className="lead">and press submit button.</p>
+                    <h1 className="display-3 text-center">Upload a Photo</h1>
+                    <p className="text-center">and press submit button.</p>
                 </div>
             );
         }
@@ -24,12 +26,15 @@ class Jumbotron extends Component {
 
     render() {
         return (
-            <div className="jumbotron jumbotron-fluid">
-                {this.renderJumbotron()}
+            <div className="view overlay">
+                <div className="jumbotron jumbotron-fluid shadow p-3 mb-5 bg-white rounded">
+                    {this.renderJumbotron()}
+                </div>
             </div>
         )
     }
 }
+
 
 function mapStateToProps({ auth }) {
     return { auth: auth.authenticated };

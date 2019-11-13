@@ -25,12 +25,21 @@ class Header extends Component {
     }
 
     render() {
-        return (
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link to='/' className="navbar-brand">Doppleganger</Link>
-                {this.renderLinks()}
-            </nav>
-        )
+        if (this.props.auth) {
+            return (
+                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <Link to='/main' className="navbar-brand">Doppleganger</Link>
+                    {this.renderLinks()}
+                </nav>
+            )
+        } else {
+            return (
+                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <Link to='/' className="navbar-brand">Doppleganger</Link>
+                    {this.renderLinks()}
+                </nav>
+            )
+        }
     }
 }
 
