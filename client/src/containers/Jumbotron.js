@@ -11,14 +11,14 @@ class Jumbotron extends Component {
             return (
                 <div className="container">
                     <h1 className="display-3 text-center">Which celebs looks like you?</h1>
-                    <p className="text-center">Sign in or Sign up below to get the answer!</p>
+                    <p className="display-6 text-center">Hover Your Mouse On the Faces Below!!!</p>
                 </div>
             );
         } else {
             return (
                 <div className="container">
                     <h1 className="display-3 text-center">Upload a Photo</h1>
-                    <p className="text-center">and press submit button.</p>
+                    <p className="display-6 text-center">and press submit button.</p>
                 </div>
             );
         }
@@ -26,8 +26,8 @@ class Jumbotron extends Component {
 
     render() {
         return (
-            <div className="view overlay">
-                <div className="jumbotron jumbotron-fluid shadow p-3 mb-5 bg-white rounded">
+            <div className="jumbotron">
+                <div className="jumbotron jumbotron-fluid shadow-lg p-3 bg-white rounded">
                     {this.renderJumbotron()}
                 </div>
             </div>

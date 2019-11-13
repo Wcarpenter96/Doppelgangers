@@ -1,3 +1,8 @@
-/* .jumbotron {
-    background-color:white;
-} */
+.jumbotron {
+    background-color:floralwhite;
+    margin-bottom: 0px;
+}
+
+.p {
+    color: floralwhite;
+}

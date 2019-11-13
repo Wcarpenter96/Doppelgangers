@@ -10,6 +10,8 @@ import SignUp from './containers/auth/SignUp';
 import SignIn from './containers/auth/SignIn';
 import SignOut from './containers/auth/SignOut';
 import Main from './containers/Main';
+import Home from './containers/Home';
+
 
 
 import reducers from './reducers';
@@ -29,7 +31,8 @@ ReactDOM.render(
                 <Route exact path='/signup' component={SignUp} />
                 <Route exact path='/signin' component={SignIn} />   
                 <Route exact path='/signout' component={SignOut}/>
-                <Route exact path='/main' component={Main}/>    
+                <Route exact path='/main' component={Main}/>       
+                <Route exact path='/' component={Home}/>    
             </App>
         </Router>
     </Provider>
