@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/celebs", { useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/users", { useNewUrlParser: true, useUnifiedTopology: true, 'useCreateIndex': true});
 
 // Define API routes here
 

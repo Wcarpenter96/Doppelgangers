@@ -5,18 +5,20 @@ import { connect } from 'react-redux';
 
 
 class Header extends Component {
-    renderLinks(){
-        if(this.props.auth) {
+    renderLinks() {
+        if (this.props.auth) {
             return (
-                <div>
-                    <Link to='/signout'>Sign Out</Link>
-                </div>
+                <ul className="navbar-nav">
+                    <li className="nav-item active">
+                        <Link to='/signout' className="nav-link">Sign Out</Link>
+                    </li >
+                </ul>
             );
         } else {
             return (
-                <div>
-                    <Link to='/signup'>Sign up</Link>
-                    <Link to='/signin'>Sign in</Link>
+                <div className="navbar-nav">
+                    <Link to='/signup' className="nav-link">Sign up</Link>
+                    <Link to='/signin' className="nav-link">Sign in</Link>
                 </div>
             );
         }
@@ -24,10 +26,10 @@ class Header extends Component {
 
     render() {
         return (
-            <div>
-                <Link to='/'>Redux Auth</Link>   
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <Link to='/' className="navbar-brand">Doppleganger</Link>
                 {this.renderLinks()}
-            </div>
+            </nav>
         )
     }
 }
@@ -37,3 +39,4 @@ function mapStateToProps({ auth }) {
 }
 
 export default connect(mapStateToProps, null)(Header);
+
