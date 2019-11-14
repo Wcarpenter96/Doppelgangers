@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 import {initUpload} from './../../actions';
 import {turnoffErrorMessage} from './../../actions';
 import { connect } from 'react-redux';
+import { stat } from 'fs';
 
 
 class Main extends Component {
+
+    componentDidMount() {
+        console.log('hello world')
+    }
+    
     
     render() {
         return (
@@ -18,6 +24,7 @@ class Main extends Component {
                 </div>
                 <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
                     <div className="offset-md-2">{this.props.errorMessage}</div>
+                    <div className="offset-md-2">{JSON.stringify(this.props.matches)}</div>
                 </div>
             </div>
         )
@@ -27,6 +34,7 @@ class Main extends Component {
 function mapStateToProps(state) {
     return {
         image_url: state.main.image_url,
+        matches: state.main.matches,
         errorMessage: state.main.errorMessage
     }
 }
