@@ -1,5 +1,6 @@
 import * as types from './types';
 import axios from 'axios';
+import { CloudWatchLogs } from 'aws-sdk';
 
 
 export const signup = (formprops, callback) => async dispatch => {
@@ -42,6 +43,7 @@ export const initUpload = () => async dispatch => {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     const response = JSON.parse(xhr.responseText);
+                    console.log(response.url)
                     xhr.open('PUT', response.signedRequest);
                     xhr.onreadystatechange = () => {
                         if (xhr.readyState === 4) {
