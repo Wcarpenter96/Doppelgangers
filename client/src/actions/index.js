@@ -53,6 +53,7 @@ export const initUpload = () => async dispatch => {
                                     image_url: response.url
                                 })
                                     .then(function (res) {
+                                        console.log(res)
                                         dispatch({ type: types.UPLOAD_PICTURE, payload: { url: response.url , matches: res }})
 
                                     })
