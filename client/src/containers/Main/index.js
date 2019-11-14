@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Header from './../../containers/Header.js';
 import Jumbotron from './../../containers/Jumbotron.js';
 import { stat } from 'fs';
+import './main.css'
 
 
 class Main extends Component {
@@ -17,9 +18,17 @@ class Main extends Component {
     render() {
         return (
             <div>
+                <div>
                 <Header/>
                 <Jumbotron/>
-                <h1>This is main</h1>
+                </div>
+                <container>
+                <h1 className='text-center'>Your Profile Page</h1>
+                <br></br>
+                <br></br>
+                <hr/>
+                <br></br>
+                <br></br>
             <div className="Container">
                 <div className="row">
                     <div className="col offset-md-2">
@@ -33,6 +42,7 @@ class Main extends Component {
                     <div className="offset-md-2">{this.props.errorMessage}</div>
                 </div>
             </div>
+            </container>
             </div>
         )
     }
