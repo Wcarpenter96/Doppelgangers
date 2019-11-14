@@ -22,9 +22,9 @@ class Main extends Component {
                         <img style={{ border: "1px solid gray", width: "300px" }} id="preview" src={this.props.image_url} alt="profile_image"/>
                     </div>
                 </div>
+                <div>{JSON.stringify(this.props.matches)}</div>
                 <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
                     <div className="offset-md-2">{this.props.errorMessage}</div>
-                    <div className="offset-md-2">{JSON.stringify(this.props.matches)}</div>
                 </div>
             </div>
         )
