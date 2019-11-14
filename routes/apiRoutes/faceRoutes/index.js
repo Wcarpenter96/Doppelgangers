@@ -66,8 +66,7 @@ router.post('/add', function (req, res) {
 
 router.post('/search', async function (req, res) {
 
-   // const user_id = req.body.user_id
-   const user_id = '5dcc7dc7877529002a7e7acf'
+   const user_id = req.body.user_id
    const image_url = req.body.image_url
 
    const searchData = {

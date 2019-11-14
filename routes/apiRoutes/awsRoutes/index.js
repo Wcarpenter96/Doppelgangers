@@ -3,8 +3,6 @@ const aws = require('aws-sdk');
 
 const db = require('../../../models');
 
-
-
 router.get('/sign-s3', (req, res) => {
     const user_id = "5dcc7dc7877529002a7e7acf"
     const S3_BUCKET = process.env.S3_BUCKET || 'friend-finder-assets';

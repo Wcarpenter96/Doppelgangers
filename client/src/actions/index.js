@@ -34,6 +34,7 @@ export const signout = () => {
 }
 
 export const initUpload = () => async dispatch => {
+    const user_id = '5dcc7dc7877529002a7e7acf'
     try {
         const files = document.getElementById('file-input').files;
         const file = files[0];
@@ -43,35 +44,44 @@ export const initUpload = () => async dispatch => {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     const response = JSON.parse(xhr.responseText);
-                    console.log(response.url)
                     xhr.open('PUT', response.signedRequest);
                     xhr.onreadystatechange = () => {
                         if (xhr.readyState === 4) {
                             if (xhr.status === 200) {
-                                dispatch({type: types.UPLOAD_PICTURE, payload: response.url})
+                                axios.post('/api/face/search', {
+                                    user_id: user_id,
+                                    image_url: response.url
+                                })
+                                    .then(function (res) {
+                                        console.log(res);
+                                    })
+                                    .catch(function (e) {
+                                        console.log(e);
+                                    });
+                                dispatch({ type: types.UPLOAD_PICTURE, payload: response.url })
                             }
                             else {
-                                dispatch({type: types.UPLOAD_PICTURE_ERROR, payload: 'Could not upload file.'})
+                                dispatch({ type: types.UPLOAD_PICTURE_ERROR, payload: 'Could not upload file.' })
                             }
                         }
                     };
                     xhr.send(file);
                 }
                 else {
-                    dispatch({type: types.UPLOAD_PICTURE_ERROR, payload: 'Could not upload file.'})
+                    dispatch({ type: types.UPLOAD_PICTURE_ERROR, payload: 'Could not upload file.' })
                 }
             }
         };
         xhr.send();
     } catch (err) {
-        dispatch({type: types.UPLOAD_PICTURE_ERROR, payload: "You didn't choose the file"})
+        dispatch({ type: types.UPLOAD_PICTURE_ERROR, payload: "You didn't choose the file" })
     }
-    
+
 }
 
 export const turnoffErrorMessage = () => dispatch => {
     setTimeout(() => {
-        dispatch({type: types.TURNOFF_ERROR})
+        dispatch({ type: types.TURNOFF_ERROR })
     }, 2000);
 }
 
