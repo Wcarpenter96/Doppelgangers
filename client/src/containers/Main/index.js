@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {initUpload} from './../../actions';
-import {turnoffErrorMessage} from './../../actions';
+import { initUpload } from './../../actions';
+import { loadData } from './../../actions';
+import { turnoffErrorMessage } from './../../actions';
 import { connect } from 'react-redux';
 import Header from './../../containers/Header.js';
 import Jumbotron from './../../containers/Jumbotron.js';
@@ -14,27 +15,27 @@ class Main extends Component {
         console.log('hello world')
         this.props.loadData(user_id);
     }
-    
-    
+
+
     render() {
         return (
             <div>
-                <Header/>
-                <Jumbotron/>
+                <Header />
+                <Jumbotron />
                 <h1>This is main</h1>
-            <div className="Container">
-                <div className="row">
-                    <div className="col offset-md-2">
-                        <input type="file" id="file-input" onChange={this.props.initUpload}/>
-                        <p id="status">Please select a file</p>
-                        <img style={{ border: "1px solid gray", width: "300px" }} id="preview" src={this.props.image_url} alt="profile_image"/>
+                <div className="Container">
+                    <div className="row">
+                        <div className="col offset-md-2">
+                            <input type="file" id="file-input" onChange={this.props.initUpload} />
+                            <p id="status">Please select a file</p>
+                            <img style={{ border: "1px solid gray", width: "300px" }} id="preview" src={this.props.image_url} alt="profile_image" />
+                        </div>
+                    </div>
+                    <div>{JSON.stringify(this.props.matches)}</div>
+                    <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
+                        <div className="offset-md-2">{this.props.errorMessage}</div>
                     </div>
                 </div>
-                <div>{JSON.stringify(this.props.matches)}</div>
-                <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
-                    <div className="offset-md-2">{this.props.errorMessage}</div>
-                </div>
-            </div>
             </div>
         )
     }
@@ -48,4 +49,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { initUpload , turnoffErrorMessage })(Main);
+export default connect(mapStateToProps, { initUpload, turnoffErrorMessage, loadData })(Main);

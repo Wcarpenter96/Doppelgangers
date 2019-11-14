@@ -33,13 +33,16 @@ export const signout = () => {
     };
 }
 
-export const loadData = (user_id) => {
+export const loadData = (user_id) => async dispatch => {
     axios.get(`api/face/user/${user_id}`)
         .then(function (res) {
             console.log(res)
+            dispatch({ type: types.DATA, payload: res });
         })
         .catch(function (e) {
             console.log(e)
+            dispatch({ type: types.DATA_ERROR, payload: 'User data could not load' });
+
         });
 }
 
