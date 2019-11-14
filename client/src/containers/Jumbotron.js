@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+
 import './Jumbotron.css';
 
 
@@ -12,7 +13,7 @@ class Jumbotron extends Component {
             return (
                 <div className="container">
                     <h1 className="display-3 text-center">Which celebs looks like you?</h1>
-                    <p className="display-6 text-center">Hover Your Mouse On the Faces Below!!!</p>
+                    <p className="display-6 text-center">Please Sign In or Sign Up!</p>
                 </div>
             );
         } else {
@@ -27,11 +28,12 @@ class Jumbotron extends Component {
 
     render() {
         return (
-            <div className="jumbotron">
-                <div className="jumbotron jumbotron-fluid shadow-lg p-3 bg-white rounded">
+                <div className='jumbotron jumbotron-fluid'>
+                <div className="jumbotron shadow-lg bg-white rounded">
                     {this.renderJumbotron()}
                 </div>
-            </div>
+                </div>
+            
         )
     }
 }

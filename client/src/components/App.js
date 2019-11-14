@@ -7,8 +7,8 @@ import Jumbotron from './../containers/Jumbotron';
 export default ({ children }) => {
   return (
     <div>
-      <Header/>
-      <Jumbotron/>
+      {/* <Header/>
+      <Jumbotron/> */}
       {children}
     </div>
   );

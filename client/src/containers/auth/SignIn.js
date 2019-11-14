@@ -3,6 +3,9 @@ import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { signIn } from './../../actions';
+import Header from './../../containers/Header.js';
+import Jumbotron from './../../containers/Jumbotron.js';
+// import './SignIn.css'
 
 class SignIn extends Component {
     onSubmit = formProps => {
@@ -16,6 +19,9 @@ class SignIn extends Component {
         const { handleSubmit } = this.props;
 
         return (
+            <div>
+            <Header/>
+            <Jumbotron/>
             <form onSubmit={handleSubmit(this.onSubmit)}>
                 <h1 className="offset-md-2">Sign in</h1>
                 <div className="form-group row">
@@ -52,10 +58,11 @@ class SignIn extends Component {
 
                 <div className="form-group row">
                     <div className="col offset-md-2">
-                        <button type="submit" className="btn btn-primary">Sign in</button>
+                        <button type="submit" className="btn btn-warning">Sign in</button>
                     </div>
                 </div>
             </form>
+            </div>
         );
     }
 }

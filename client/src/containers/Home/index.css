@@ -31,6 +31,7 @@
   transform: scale(1.1);
   -webkit-transition: all 0.35s;
   transition: all 0.35s;
+  opacity:30%;
 }
 
 .hovereffect:hover img {
@@ -45,9 +46,9 @@
 
 .hovereffect h1 {
   text-transform: uppercase;
-  color: sandybrown;
+  color: darkorange;
   text-align: center;
-  /* font-size: 17px; */
+  font-size: 80px;
   padding: 10px;
   width: 100%;
 }
@@ -66,16 +67,16 @@
   transform: translate3d(-50%,-50%,0) scale3d(0.8,0.8,1);
 } */
 
-button {
+/* button {
   opacity: 0;
-}
+} */
 
-button:hover {
+/* button:hover {
   opacity: 100;
   filter: alpha(opacity=0);
   -webkit-transform: translate3d(-50%,-50%,0) scale3d(0.8,0.8,1);
   transform: translate3d(-50%,-50%,0) scale3d(0.8,0.8,1);
-}
+} */
 
 
 .hovereffect a.info {
@@ -105,6 +106,18 @@ button:hover {
 .hovereffect hr {
   width: 50%;
   opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.hovereffect button {
+  width: 100%;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.hovereffect:hover button {
+  width: 100%;
+  opacity: 100;
   filter: alpha(opacity=0);
 }
 
