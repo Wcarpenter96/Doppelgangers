@@ -53,13 +53,12 @@ export const initUpload = () => async dispatch => {
                                     image_url: response.url
                                 })
                                     .then(function (res) {
-                                        console.log(res);
+                                        dispatch({ type: types.UPLOAD_PICTURE, payload: { url: response.url , matches: res }})
+
                                     })
                                     .catch(function (e) {
-                                        console.log(e);
-                                    });
-                                dispatch({ type: types.UPLOAD_PICTURE, payload: response.url })
-                            }
+                                        dispatch({ type: types.UPLOAD_PICTURE_ERROR, payload: 'Face Search Error' })
+                                    });                            }
                             else {
                                 dispatch({ type: types.UPLOAD_PICTURE_ERROR, payload: 'Could not upload file.' })
                             }
