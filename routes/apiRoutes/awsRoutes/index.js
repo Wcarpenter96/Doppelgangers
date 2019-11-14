@@ -4,7 +4,7 @@ const aws = require('aws-sdk');
 
 
 router.get('/sign-s3', (req, res) => {
-    const S3_BUCKET = process.env.S3_BUCKET;
+    const S3_BUCKET = process.env.S3_BUCKET || 'friend-finder-assets';
     aws.config.region = 'us-west-1';
     const s3 = new aws.S3();
     const fileName = req.query['file-name'];
