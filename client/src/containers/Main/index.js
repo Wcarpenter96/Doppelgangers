@@ -10,7 +10,9 @@ import { stat } from 'fs';
 class Main extends Component {
 
     componentDidMount() {
+        const user_id = '5dcc7dc7877529002a7e7acf'
         console.log('hello world')
+        this.props.loadData(user_id);
     }
     
     

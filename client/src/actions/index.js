@@ -33,6 +33,16 @@ export const signout = () => {
     };
 }
 
+export const loadData = (user_id) => {
+    axios.get(`api/face/user/${user_id}`)
+        .then(function (res) {
+            console.log(res)
+        })
+        .catch(function (e) {
+            console.log(e)
+        });
+}
+
 export const initUpload = () => async dispatch => {
     const user_id = '5dcc7dc7877529002a7e7acf'
     try {
@@ -54,12 +64,13 @@ export const initUpload = () => async dispatch => {
                                 })
                                     .then(function (res) {
                                         console.log(res)
-                                        dispatch({ type: types.UPLOAD_PICTURE, payload: { url: response.url , matches: res }})
+                                        dispatch({ type: types.UPLOAD_PICTURE, payload: { url: response.url, matches: res } })
 
                                     })
                                     .catch(function (e) {
                                         dispatch({ type: types.UPLOAD_PICTURE_ERROR, payload: 'Face Search Error' })
-                                    });                            }
+                                    });
+                            }
                             else {
                                 dispatch({ type: types.UPLOAD_PICTURE_ERROR, payload: 'Could not upload file.' })
                             }
@@ -76,7 +87,6 @@ export const initUpload = () => async dispatch => {
     } catch (err) {
         dispatch({ type: types.UPLOAD_PICTURE_ERROR, payload: "You didn't choose the file" })
     }
-
 }
 
 export const turnoffErrorMessage = () => dispatch => {
