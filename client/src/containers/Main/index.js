@@ -33,6 +33,7 @@ class Main extends Component {
                     <div className="offset-md-2">{this.props.errorMessage}</div>
                 </div>
             </div>
+            </div>
         )
     }
 }
