@@ -4,6 +4,8 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import { signup } from './../../actions';
+import Header from './../../containers/Header.js';
+import Jumbotron from './../../containers/Jumbotron.js';
 
 class SignUp extends Component {
     onSubmit = formProps => {
@@ -17,6 +19,10 @@ class SignUp extends Component {
         const { handleSubmit } = this.props;
         // console.log(this.props);
         return (
+            <div>
+                <Header/>
+                <Jumbotron/>
+            
             <form onSubmit={handleSubmit(this.onSubmit)}>
                 <h1 className="offset-md-2">Sign up</h1>
                 <div className="form-group row">
@@ -53,10 +59,11 @@ class SignUp extends Component {
 
                 <div className="form-group row">
                     <div className="col offset-md-2">
-                        <button type="submit" className="btn btn-primary">Sign up</button>
+                        <button type="submit" className="btn btn-warning">Sign up</button>
                     </div>
                 </div>
             </form>
+            </div>
         );
     }
 }

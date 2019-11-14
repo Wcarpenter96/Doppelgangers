@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {initUpload} from './../../actions';
 import {turnoffErrorMessage} from './../../actions';
 import { connect } from 'react-redux';
+import Header from './../../containers/Header.js';
+import Jumbotron from './../../containers/Jumbotron.js';
 import { stat } from 'fs';
 
 
@@ -14,6 +16,10 @@ class Main extends Component {
     
     render() {
         return (
+            <div>
+                <Header/>
+                <Jumbotron/>
+                <h1>This is main</h1>
             <div className="Container">
                 <div className="row">
                     <div className="col offset-md-2">
