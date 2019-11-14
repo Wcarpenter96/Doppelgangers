@@ -40,6 +40,7 @@
   filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.7" /><feFuncG type="linear" slope="0.7" /><feFuncB type="linear" slope="0.7" /></feComponentTransfer></filter></svg>#filter');
   filter: brightness(0.4);
   -webkit-filter: brightness(0.4);
+  -webkit-filter: opacity(0.1);
 }
 
 .hovereffect h1 {
@@ -58,6 +59,25 @@
   transform: translate3d(-50%,-50%,0) scale3d(0.8,0.8,1);
 }
 
+/* .hovereffect:hover button {
+  opacity: 100;
+  filter: alpha(opacity=0);
+  -webkit-transform: translate3d(-50%,-50%,0) scale3d(0.8,0.8,1);
+  transform: translate3d(-50%,-50%,0) scale3d(0.8,0.8,1);
+} */
+
+button {
+  opacity: 0;
+}
+
+button:hover {
+  opacity: 100;
+  filter: alpha(opacity=0);
+  -webkit-transform: translate3d(-50%,-50%,0) scale3d(0.8,0.8,1);
+  transform: translate3d(-50%,-50%,0) scale3d(0.8,0.8,1);
+}
+
+
 .hovereffect a.info {
   display: inline-block;
   text-decoration: none;
@@ -72,8 +92,8 @@
 .hovereffect a.info:hover {
   box-shadow: 0 0 5px #fff;
 }
-/* 
-.hovereffect .rotate {
+
+/* .hovereffect .rotate {
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
@@ -87,6 +107,12 @@
   opacity: 0;
   filter: alpha(opacity=0);
 }
+
+/* .group1, .group2 {
+  width: 50%;
+  opacity: 0;
+  filter: alpha(opacity=0);
+} */
 
 .hovereffect  hr:nth-child(2) {
   -webkit-transform: translate3d(-50%,-50%,0) rotate(0deg) scale3d(0,0,1);

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './index.css'
 
 
@@ -15,21 +16,11 @@ class Home extends Component {
                         <h1>Here!</h1>
                         <div className="rotate">
                             <p className="group1">
-                                <a href="#">
-                                    <i className="fa fa-twitter"></i>
-                                </a>
-                                <a href="#">
-                                    <i className="fa fa-facebook"></i>
-                                </a>
+                            <button type="button" className="btn btn-primary btn-lg">Sign In</button>
                             </p>
                             <hr />
                             <p className="group2">
-                                <a href="#">
-                                    <i className="fa fa-instagram"></i>
-                                </a>
-                                <a href="#">
-                                    <i className="fa fa-dribbble"></i>
-                                </a>
+                            <button type="button" className="btn btn-primary btn-lg">Sign Up</button>
                             </p>
                             </div>
                         </div>
