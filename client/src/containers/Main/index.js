@@ -51,7 +51,7 @@ class Main extends Component {
                                 </div>
                             </div>
 
-                            <div className="col-md-1">{'Loading'}</div>
+                            <div className="col-md-1">{this.props.matches[0].celeb.name ? this.props.matches[0].celeb.name : 'Loading'}</div>
                             <div className="col-md-1">{JSON.stringify(this.props.data)}</div>
                             <div className="col-md-5">
                                 <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
