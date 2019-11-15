@@ -3,28 +3,28 @@ const jwt = require('jwt-simple');
 const config = require('./../config/keys');
 const _ = require('underscore');
 
-const tokenForUser = function(user) {
+const tokenForUser = function (user) {
     const timeStamp = new Date().getTime();
-    return jwt.encode({ sub: user.id, iat: timeStamp }, config.secret);   
+    return jwt.encode({ sub: user.id, iat: timeStamp }, config.secret);
 };
 
 module.exports = {
     signUp: async (req, res) => {
         const { email, password } = req.body;
-        if(!email || !password){
-            return res.status(422).json({ error: "you must provide an email and a password"});
+        if (!email || !password) {
+            return res.status(422).json({ error: "you must provide an email and a password" });
         }
 
         try {
             const existingUser = await db.User.findOne({ email });
-            if(existingUser) {
+            if (existingUser) {
                 return res.status(422).json({ error: 'Email is in use' });
             }
 
             const user = new db.User({ email, password });
             await user.save();
             res.json({ token: tokenForUser(user) });
-        } catch(e) {
+        } catch (e) {
             console.log(e);
             res.status(404).json({ e });
         }
@@ -35,7 +35,7 @@ module.exports = {
         console.log('sign in good')
         res.send({ token: tokenForUser(req.user) });
     },
-    userData: (req, res) => {
+    userData: async (req, res) => {
         // const { email } = req.user
         // db.User.find({ email : email })
         // .then(response => {
@@ -43,7 +43,20 @@ module.exports = {
         //     res.send(response)
         // }) 
         console.log('userdata hit')
-        const user = _.pick(req.user, 'email', 'matches', '_id','url')
-        res.send(user)
+        const user = _.pick(req.user, 'email', '_id', 'url')
+        const { matches } = req.user;
+        const celebs = [];
+        try {
+            for (let i = 0; i < matches.length; i++) {
+                let celeb = await db.Celeb.find({ token: matches[i] })
+                console.log('celeb', celeb)
+                let match = await db.Match.find({ user: req.user._id, celeb: celeb[0]._id })
+                celebs.push({ confidence: match[0].confidence, celeb: celeb[0].name, url: celeb[0].url })
+            }
+            console.log('celebs',celebs)
+            res.json({ user, celebs })
+        } catch (e) {
+            console.log(e)
+        }
     }
 }

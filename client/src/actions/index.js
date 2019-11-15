@@ -39,7 +39,7 @@ export const loadData = () => async dispatch => {
     })
         .then(function (res) {
             console.log(res)
-            dispatch({ type: types.DATA, payload: res });
+            dispatch({ type: types.DATA, payload: res.data });
         })
         .catch(function (e) {
             console.log(e)
