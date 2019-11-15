@@ -13,6 +13,8 @@ router.route('/signup')
 router.route('/signin')
     .post(authMiddlewares.requireSignIn, authController.signIn);
 
+router.route('/userdata')
+    .get(authMiddlewares.requireAuth, authController.userData)
 
 // router.route('/logout')
 //     .get(authController.logout);

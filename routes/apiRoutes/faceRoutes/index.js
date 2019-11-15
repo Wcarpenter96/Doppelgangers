@@ -95,7 +95,7 @@ router.post('/search', async function (req, res) {
                   let match_id = await db.Match.find({ user: user_id, celeb: celeb[0]._id })
                   let addMatch = await db.User.findOneAndUpdate({ _id: user_id },
                      { $push: { matches: match_id } }, { new: true });
-                  celebs.push({ confidence: results[i].confidence, celeb: celeb[0].name })
+                  celebs.push({ confidence: results[i].confidence, celeb: celeb[0].name, url: celeb[0].url})
                }
                response(celebs)
             } catch (e) {
@@ -111,8 +111,8 @@ router.post('/search', async function (req, res) {
 })
 
 router.get('/user/:id', async function (req, res) {
-   // const user_id = req.params.id
-   const user_id = '5dcc7dc7877529002a7e7acf'
+   const user_id = req.params.id
+   // const user_id = '5dcc7dc7877529002a7e7acf'
    try {
       let user = await db.Match.find({ user: user_id }).populate('celeb')
       const matches = []

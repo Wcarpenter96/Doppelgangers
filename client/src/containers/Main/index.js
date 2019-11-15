@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { initUpload } from './../../actions';
+import { loadData } from './../../actions';
 import { turnoffErrorMessage } from './../../actions';
 import { connect } from 'react-redux';
 import Header from './../../containers/Header.js';
@@ -11,7 +12,7 @@ import './main.css'
 class Main extends Component {
 
     componentDidMount() {
-        console.log('hello world')
+        this.props.loadData() 
     }
 
 
@@ -134,8 +135,10 @@ function mapStateToProps(state) {
     return {
         image_url: state.main.image_url,
         matches: state.main.matches,
-        errorMessage: state.main.errorMessage
+        errorMessage: state.main.errorMessage,
+        data: state.main.data,
+        data_error: state.main.data_error
     }
 }
 
-export default connect(mapStateToProps, { initUpload, turnoffErrorMessage })(Main);
+export default connect(mapStateToProps, { initUpload, turnoffErrorMessage, loadData })(Main);
