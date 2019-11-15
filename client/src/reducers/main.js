@@ -3,7 +3,7 @@ import image from './../containers/images/default.jpg'
 
 const INITIAL_STATE = {
     image_url: image,
-    matches: {},
+    matches: [],
     errorMessage: '',
     data: {}
 };
