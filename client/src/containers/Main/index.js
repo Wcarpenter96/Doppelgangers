@@ -12,7 +12,7 @@ import './main.css'
 class Main extends Component {
 
     componentDidMount() {
-        this.props.loadData() 
+        this.props.loadData()
     }
 
 
@@ -34,19 +34,19 @@ class Main extends Component {
                         <div className="row">
                             <div className="col-md-2"></div>
                             <div className="col-md-2">
-                            <div className="row">
-                                <h3 id="status" className="text-center">Please Select A File</h3>
+                                <div className="row">
+                                    <h3 id="status" className="text-center">Please Select A File</h3>
                                 </div>
 
-                                <br/>
-                                <br/>
+                                <br />
+                                <br />
 
                                 <div className="row text-center">
-                                <img style={{ border: "1px solid gray", width: "100%" }} id="preview" src={this.props.data.url ? this.props.data.url : this.props.image_url} alt="profile_image" />
-                                
-                                <br/>
+                                    <img style={{ border: "1px solid gray", width: "100%" }} id="preview" src={this.props.data.url ? this.props.data.url : this.props.image_url} alt="profile_image" />
 
-                                <input type="file" id="file-input" onChange={this.props.initUpload} />
+                                    <br />
+
+                                    <input type="file" id="file-input" onChange={this.props.initUpload} />
                                 </div>
                             </div>
 
@@ -57,7 +57,7 @@ class Main extends Component {
                                     <div className="offset-md-2">{this.props.errorMessage}</div>
                                 </div>
                             </div>
-                            
+
 
                             <div className="col-md-5">
 
@@ -67,17 +67,16 @@ class Main extends Component {
                                     </div>
                                 </div>
 
-                                <br/>
-                                <br/>
+                                <br />
+                                <br />
 
                                 <div className="row">
                                     <div className="col-md-6">
                                         <div className="card">
-                                            <img src="https://pmcdeadline2.files.wordpress.com/2019/10/shutterstock_editorial_10434333bm.jpg" className="card-img-top" />
+                                            <img src={this.props.matches[0].celeb.url} className="card-img-top" />
                                             <div className="card-body text-center">
-                                                <h5 className="card-title">Your Similar Celeb1</h5>
-                                                <p className="card-text">Confidence:</p>
-                                                <a href="#" className="btn btn-warning">See the Image of your Celeb!</a>
+                                                <h5 className="card-title">{this.props.matches[0].celeb.name}</h5>
+                                                <p className="card-text">Confidence:{this.props.matches[0].confidence}</p>
                                             </div>
                                         </div>
                                     </div>
