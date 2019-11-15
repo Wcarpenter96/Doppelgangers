@@ -1,6 +1,7 @@
 const db = require('./../models');
 const jwt = require('jwt-simple');
 const config = require('./../config/keys');
+const _ = require('underscore');
 
 const tokenForUser = function(user) {
     const timeStamp = new Date().getTime();
@@ -30,7 +31,19 @@ module.exports = {
     },
     signIn: (req, res) => {
         // res.send("Hooray!");    
-        console.log(req.user);
+        // console.log(req.user);
+        console.log('sign in good')
         res.send({ token: tokenForUser(req.user) });
+    },
+    userData: (req, res) => {
+        // const { email } = req.user
+        // db.User.find({ email : email })
+        // .then(response => {
+        //     console.log(response)
+        //     res.send(response)
+        // }) 
+        console.log('userdata hit')
+        const user = _.pick(req.user, 'email', 'matches', '_id','url')
+        res.send(user)
     }
 }

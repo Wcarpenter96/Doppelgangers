@@ -33,8 +33,10 @@ export const signout = () => {
     };
 }
 
-export const loadData = (user_id) => async dispatch => {
-    axios.get(`api/face/user/${user_id}`)
+export const loadData = () => async dispatch => {
+    axios.get(`/api/auth/userdata`, {
+        headers: { authorization: localStorage.getItem('token') }
+    })
         .then(function (res) {
             console.log(res)
             dispatch({ type: types.DATA, payload: res });
