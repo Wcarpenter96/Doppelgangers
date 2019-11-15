@@ -42,7 +42,7 @@ class Main extends Component {
                                 <br/>
 
                                 <div className="row text-center">
-                                <img style={{ border: "1px solid gray", width: "100%" }} id="preview" src={this.props.image_url} alt="profile_image" />
+                                <img style={{ border: "1px solid gray", width: "100%" }} id="preview" src={this.props.data.url ? this.props.data.url : this.props.image_url} alt="profile_image" />
                                 
                                 <br/>
 
@@ -51,11 +51,14 @@ class Main extends Component {
                             </div>
 
                             <div className="col-md-1">{JSON.stringify(this.props.matches)}</div>
-                            {/* <div className="col-md-5">
+                            <div className="col-md-1">{JSON.stringify(this.props.data)}</div>
+                            <div className="col-md-5">
                                 <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
                                     <div className="offset-md-2">{this.props.errorMessage}</div>
                                 </div>
-                            </div> */}
+                            </div>
+                            
+
                             <div className="col-md-5">
 
                                 <div className="row">
