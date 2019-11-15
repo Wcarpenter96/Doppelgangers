@@ -6,7 +6,6 @@ const INITIAL_STATE = {
     matches: {},
     errorMessage: '',
     data: [],
-    data_error: ''
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -23,7 +22,7 @@ export default function (state = INITIAL_STATE, action) {
         case DATA:
             return { ...state, data: action.payload };
         case DATA_ERROR:
-            return { ...state, data_error: action.payload }
+            return { ...state, errorMessage: action.payload }
         default:
             return state;
     }

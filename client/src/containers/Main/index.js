@@ -11,7 +11,6 @@ import { stat } from 'fs';
 class Main extends Component {
 
     componentDidMount() {
-        const user_id = '5dcc7dc7877529002a7e7acf'
         this.props.loadData();     
     }
 
@@ -30,6 +29,7 @@ class Main extends Component {
                         </div>
                     </div>
                     <div>{JSON.stringify(this.props.matches)}</div>
+                    <div>{JSON.stringify(this.props.data)}</div>
                     <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
                         <div className="offset-md-2">{this.props.errorMessage}</div>
                     </div>
@@ -43,7 +43,9 @@ function mapStateToProps(state) {
     return {
         image_url: state.main.image_url,
         matches: state.main.matches,
-        errorMessage: state.main.errorMessage
+        errorMessage: state.main.errorMessage,
+        data: state.main.data,
+        data_error: state.main.data_error
     }
 }
 
