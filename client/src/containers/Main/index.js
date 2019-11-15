@@ -50,7 +50,7 @@ class Main extends Component {
                                 </div>
                             </div>
 
-                            <div className="col-md-1">{this.props.matches ? JSON.stringify(this.props.matches[0]) : 'Loading'}</div>
+                            <div className="col-md-1">{JSON.stringify(this.props.matches}</div>
                             <div className="col-md-1">{JSON.stringify(this.props.data)}</div>
                             <div className="col-md-5">
                                 <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
@@ -73,10 +73,10 @@ class Main extends Component {
                                 <div className="row">
                                     <div className="col-md-6">
                                         <div className="card">
-                                            <img src={''} className="card-img-top" />
+                                            <img src="" className="card-img-top" />
                                             <div className="card-body text-center">
-                                                <h5 className="card-title">{''}</h5>
-                                                <p className="card-text">Confidence:{''}</p>
+                                                <h5 className="card-title"></h5>
+                                                <p className="card-text">Confidence:</p>
                                             </div>
                                         </div>
                                     </div>
