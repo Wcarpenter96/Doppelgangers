@@ -5,7 +5,7 @@ const INITIAL_STATE = {
     image_url: image,
     matches: {},
     errorMessage: '',
-    data: [],
+    data: {}
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -20,7 +20,7 @@ export default function (state = INITIAL_STATE, action) {
         case TURNOFF_ERROR:
             return { ...state, errorMessage: '' }
         case DATA:
-            return { ...state, data: action.payload };
+            return { ...state, data: action.payload.user, matches: action.payload.celebs };
         case DATA_ERROR:
             return { ...state, errorMessage: action.payload }
         default:

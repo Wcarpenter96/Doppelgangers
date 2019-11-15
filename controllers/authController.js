@@ -48,10 +48,11 @@ module.exports = {
         const celebs = [];
         try {
             for (let i = 0; i < matches.length; i++) {
-                let celeb = await db.Celeb.find({ token: matches[i] })
+                console.log('match: ', matches[i])
+                let celeb = await db.Celeb.findById(matches[i])
                 console.log('celeb', celeb)
-                let match = await db.Match.find({ user: req.user._id, celeb: celeb[0]._id })
-                celebs.push({ confidence: match[0].confidence, celeb: celeb[0].name, url: celeb[0].url })
+                let match = await db.Match.find({ user: req.user._id, celeb: celeb._id })
+                celebs.push({ confidence: match[0].confidence, celeb: celeb.name, url: celeb.url })
             }
             console.log('celebs',celebs)
             res.json({ user, celebs })
