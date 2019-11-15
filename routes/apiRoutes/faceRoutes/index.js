@@ -85,6 +85,7 @@ router.post('/search', async function (req, res) {
          const celebs = [];
          async function find() {
             try {
+               let deleteMatches = await db.User.findByIdAndUpdate(user_id,{matches : []})
                for (let i = 0; i < results.length; i++) {
                   let celeb = await db.Celeb.find({ token: results[i].face_token })
                   let match = await db.Match.create({
@@ -92,7 +93,7 @@ router.post('/search', async function (req, res) {
                      celeb: celeb[0]._id,
                      confidence: results[i].confidence
                   })
-                  let match_id = await db.Match.find({ user: user_id, celeb: celeb[0]._id })
+                  let match_id = await db.Match.findOne({ user: user_id, celeb: celeb[0]._id })
                   let addMatch = await db.User.findOneAndUpdate({ _id: user_id },
                      { $push: { matches: match_id } }, { new: true });
                   celebs.push({ confidence: results[i].confidence, celeb: celeb[0].name, url: celeb[0].url})
