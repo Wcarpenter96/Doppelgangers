@@ -20,9 +20,17 @@ class SignUp extends Component {
         // console.log(this.props);
         return (
             <div>
-                <Header/>
-                <Jumbotron/>
-            
+            <Header/>
+            <Jumbotron/>
+            <h1 className='text-center'>Sign Up Below</h1>
+                    <br></br>
+                    <br></br>
+                    <hr />
+                    <br></br>
+                    <br></br>
+            <div className="row">
+            <div className='col-md-2'></div>
+            <div className='col-md-2'>
             <form onSubmit={handleSubmit(this.onSubmit)}>
                 <h1 className="offset-md-2">Sign up</h1>
                 <div className="form-group row">
@@ -63,6 +71,16 @@ class SignUp extends Component {
                     </div>
                 </div>
             </form>
+            </div>
+            
+            <div className='col-md-1'></div>
+            <div className='col-md-5 text-center'>
+                <img src='https://media.giphy.com/media/dyjL2vi0AocEEE6ZkA/giphy.gif' />
+            </div>
+            <div className='col-md-2'></div>
+            </div>
+            <br/>
+            <br/>
             </div>
         );
     }

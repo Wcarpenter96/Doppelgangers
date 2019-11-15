@@ -14,7 +14,7 @@ class SignOut extends Component {
         <div>
         <Header/>
         <Jumbotron/>
-        <h1>Sorry to see you go!</h1>
+        <h1 ClassName='text-center'>Sorry to see you go!</h1>
         </div>
         );
     }

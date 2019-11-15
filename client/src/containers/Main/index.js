@@ -33,9 +33,20 @@ class Main extends Component {
                         <div className="row">
                             <div className="col-md-2"></div>
                             <div className="col-md-2">
+                            <div className="row">
+                                <h3 id="status" className="text-center">Please Select A File</h3>
+                                </div>
+
+                                <br/>
+                                <br/>
+
+                                <div className="row text-center">
+                                <img style={{ border: "1px solid gray", width: "100%" }} id="preview" src={this.props.image_url} alt="profile_image" />
+                                
+                                <br/>
+
                                 <input type="file" id="file-input" onChange={this.props.initUpload} />
-                                <p id="status">Please select a file</p>
-                                <img style={{ border: "1px solid gray", width: "300px" }} id="preview" src={this.props.image_url} alt="profile_image" />
+                                </div>
                             </div>
 
                             <div className="col-md-1">{JSON.stringify(this.props.matches)}</div>
@@ -46,6 +57,14 @@ class Main extends Component {
                             </div> */}
                             <div className="col-md-5">
 
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <h3 className='text-center'>Your Similar Celeberties</h3>
+                                    </div>
+                                </div>
+
+                                <br/>
+                                <br/>
 
                                 <div className="row">
                                     <div className="col-md-6">
@@ -70,12 +89,12 @@ class Main extends Component {
                                     </div>
                                 </div>
 
-                                <br/>
-                                <br/>
-                                <br/>
+                                <br />
+                                <br />
+                                <br />
 
                                 <div className="row">
-                                <div className="col-md-6">
+                                    <div className="col-md-6">
                                         <div className="card">
                                             <img src="https://i.ytimg.com/vi/8xfnjYYy2lM/maxresdefault.jpg" className="card-img-top" />
                                             <div className="card-body text-center">
