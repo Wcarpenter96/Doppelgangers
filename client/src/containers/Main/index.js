@@ -73,10 +73,10 @@ class Main extends Component {
                                 <div className="row">
                                     <div className="col-md-6">
                                         <div className="card">
-                                            <img src={this.props.matches[0].celeb.url} className="card-img-top" />
+                                            <img src={this.props.matches ? this.props.matches[0].celeb.url : ''} className="card-img-top" />
                                             <div className="card-body text-center">
-                                                <h5 className="card-title">{this.props.matches[0].celeb.name}</h5>
-                                                <p className="card-text">Confidence:{this.props.matches[0].confidence}</p>
+                                                <h5 className="card-title">{this.props.matches ? this.props.matches[0].celeb.name : 'Loading...'}</h5>
+                                                <p className="card-text">Confidence:{this.props.matches ? this.props.matches[0].confidence : ''}</p>
                                             </div>
                                         </div>
                                     </div>
