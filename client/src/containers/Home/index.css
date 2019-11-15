@@ -31,8 +31,9 @@
   transform: scale(1.1);
   -webkit-transition: all 0.35s;
   transition: all 0.35s;
-  opacity:30%;
+  opacity:0.3;
 }
+
 
 .hovereffect:hover img {
   -webkit-transform: scale(1);
