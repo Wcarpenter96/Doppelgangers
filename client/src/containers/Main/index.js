@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {initUpload} from './../../actions';
-import {turnoffErrorMessage} from './../../actions';
+import { initUpload } from './../../actions';
+import { turnoffErrorMessage } from './../../actions';
 import { connect } from 'react-redux';
 import Header from './../../containers/Header.js';
 import Jumbotron from './../../containers/Jumbotron.js';
@@ -13,36 +13,99 @@ class Main extends Component {
     componentDidMount() {
         console.log('hello world')
     }
-    
-    
+
+
     render() {
         return (
             <div>
                 <div>
-                <Header/>
-                <Jumbotron/>
+                    <Header />
+                    <Jumbotron />
                 </div>
                 <container>
-                <h1 className='text-center'>Your Profile Page</h1>
-                <br></br>
-                <br></br>
-                <hr/>
-                <br></br>
-                <br></br>
-            <div className="Container">
-                <div className="row">
-                    <div className="col offset-md-2">
-                        <input type="file" id="file-input" onChange={this.props.initUpload}/>
-                        <p id="status">Please select a file</p>
-                        <img style={{ border: "1px solid gray", width: "300px" }} id="preview" src={this.props.image_url} alt="profile_image"/>
+                    <h1 className='text-center'>Your Profile Page</h1>
+                    <br></br>
+                    <br></br>
+                    <hr />
+                    <br></br>
+                    <br></br>
+                    <div className="Container">
+                        <div className="row">
+                            <div className="col-md-2"></div>
+                            <div className="col-md-2">
+                                <input type="file" id="file-input" onChange={this.props.initUpload} />
+                                <p id="status">Please select a file</p>
+                                <img style={{ border: "1px solid gray", width: "300px" }} id="preview" src={this.props.image_url} alt="profile_image" />
+                            </div>
+
+                            <div className="col-md-1">{JSON.stringify(this.props.matches)}</div>
+                            {/* <div className="col-md-5">
+                                <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
+                                    <div className="offset-md-2">{this.props.errorMessage}</div>
+                                </div>
+                            </div> */}
+                            <div className="col-md-5">
+
+
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <div className="card">
+                                            <img src="https://pmcdeadline2.files.wordpress.com/2019/10/shutterstock_editorial_10434333bm.jpg" className="card-img-top" />
+                                            <div className="card-body text-center">
+                                                <h5 className="card-title">Your Similar Celeb1</h5>
+                                                <p className="card-text">Confidence:</p>
+                                                <a href="#" className="btn btn-warning">See the Image of your Celeb!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <div className="card">
+                                            <img src="https://thenypost.files.wordpress.com/2016/12/608558788.jpg?quality=90&strip=all&w=618&h=410&crop=1" className="card-img-top" />
+                                            <div className="card-body text-center">
+                                                <h5 className="card-title">Your Similar Celeb1</h5>
+                                                <p className="card-text">Confidence:</p>
+                                                <a href="#" className="btn btn-warning">See the Image of your Celeb!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br/>
+                                <br/>
+                                <br/>
+
+                                <div className="row">
+                                <div className="col-md-6">
+                                        <div className="card">
+                                            <img src="https://i.ytimg.com/vi/8xfnjYYy2lM/maxresdefault.jpg" className="card-img-top" />
+                                            <div className="card-body text-center">
+                                                <h5 className="card-title">Your Similar Celeb1</h5>
+                                                <p className="card-text">Confidence:</p>
+                                                <a href="#" className="btn btn-warning">See the Image of your Celeb!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <div className="card">
+                                            <img src="https://nyppagesix.files.wordpress.com/2018/04/gettyimages-901333660.jpg?quality=90&strip=all&w=618&h=410&crop=1" className="card-img-top" />
+                                            <div className="card-body text-center">
+                                                <h5 className="card-title">Your Similar Celeb1</h5>
+                                                <p className="card-text">Confidence:</p>
+                                                <a href="#" className="btn btn-warning">See the Image of your Celeb!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div className="col-md-2"></div>
+                        </div>
                     </div>
-                </div>
-                <div>{JSON.stringify(this.props.matches)}</div>
-                <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
-                    <div className="offset-md-2">{this.props.errorMessage}</div>
-                </div>
-            </div>
-            </container>
+                </container>
+                <br></br>
+                <br></br>
+                <br></br>
             </div>
         )
     }
@@ -56,4 +119,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { initUpload , turnoffErrorMessage })(Main);
+export default connect(mapStateToProps, { initUpload, turnoffErrorMessage })(Main);
