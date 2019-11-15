@@ -11,6 +11,7 @@ import SignIn from './containers/auth/SignIn';
 import SignOut from './containers/auth/SignOut';
 import Main from './containers/Main';
 import Home from './containers/Home';
+import allUsers from './containers/allUsers'
 
 
 
@@ -33,6 +34,7 @@ ReactDOM.render(
                 <Route exact path='/signout' component={SignOut}/>
                 <Route exact path='/main' component={Main}/>       
                 <Route exact path='/' component={Home}/>    
+                <Route exact path='/alluser' component={allUsers}/>    
             </App>
         </Router>
     </Provider>
