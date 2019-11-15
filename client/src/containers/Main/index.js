@@ -11,21 +11,21 @@ import { stat } from 'fs';
 class Main extends Component {
 
     componentDidMount() {
-        this.props.loadData();     
+        this.props.loadData() 
     }
 
-    render() {
+    render() { 
         return (
             <div>
                 <Header />
                 <Jumbotron />
-                <h1>This is main</h1>
+                <h1>Welcome, {this.props.data.email}</h1>
                 <div className="Container">
                     <div className="row">
                         <div className="col offset-md-2">
                             <input type="file" id="file-input" onChange={this.props.initUpload} />
                             <p id="status">Please select a file</p>
-                            <img style={{ border: "1px solid gray", width: "300px" }} id="preview" src={this.props.image_url} alt="profile_image" />
+                            <img style={{ border: "1px solid gray", width: "300px" }} id="preview" src={this.props.data.url ? this.props.data.url : this.props.image_url} alt="profile_image" />
                         </div>
                     </div>
                     <div>{JSON.stringify(this.props.matches)}</div>
