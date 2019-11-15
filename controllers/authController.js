@@ -49,10 +49,8 @@ module.exports = {
         try {
             for (let i = 0; i < matches.length; i++) {
                 console.log('match: ', matches[i])
-                let celeb = await db.Celeb.findById(matches[i])
-                console.log('celeb', celeb)
-                let match = await db.Match.find({ user: req.user._id, celeb: celeb._id })
-                celebs.push({ confidence: match[0].confidence, celeb: celeb.name, url: celeb.url })
+                let match = await db.Match.findById(matches[i]).populate('celeb')
+                celebs.push(match)
             }
             console.log('celebs',celebs)
             res.json({ user, celebs })
