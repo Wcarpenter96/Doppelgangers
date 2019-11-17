@@ -22,7 +22,7 @@ class Main extends Component {
                 this.setState({
                     celebrities: this.props.matches
                 })
-                console.log(celebrities)
+                console.log(this.state.celebrities)
             })
 
     }
