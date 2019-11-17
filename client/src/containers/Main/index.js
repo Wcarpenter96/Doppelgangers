@@ -11,13 +11,23 @@ import './main.css'
 
 class Main extends Component {
 
+    state = {
+        celebrities: {}
+    }
+
     componentDidMount() {
         this.props.loadData()
+            .then(() => {
+                this.setState({
+                    celebrities: this.props.matches
+                })
+            })
+
     }
 
     render() {
         console.log(this.props)
-            
+
         return (
             <div>
                 <div>
@@ -46,12 +56,11 @@ class Main extends Component {
                                     <img style={{ border: "1px solid gray", width: "100%" }} id="preview" src={this.props.data.url ? this.props.data.url : this.props.image_url} alt="profile_image" />
 
                                     <br />
-
                                     <input type="file" id="file-input" onChange={this.props.initUpload} />
                                 </div>
                             </div>
 
-                            <div className="col-md-1">{this.props.matches[0].celeb.name ? this.props.matches[0].celeb.name : 'Loading'}</div>
+                            <div className="col-md-1">{JSON.stringify(this.state.celebrities)}</div>
                             <div className="col-md-1">{JSON.stringify(this.props.data)}</div>
                             <div className="col-md-5">
                                 <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
