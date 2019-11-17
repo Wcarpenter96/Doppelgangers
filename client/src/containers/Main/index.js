@@ -11,20 +11,15 @@ import './main.css'
 
 class Main extends Component {
 
-    state = {
-        celebrities: {}
-    }
-
     componentDidMount() {
         this.props.loadData()
-            .then(() => {
-                console.log('test')
-                this.setState({
-                    celebrities: this.props.matches
-                })
-                console.log(this.state.celebrities)
-            })
 
+    }
+
+    renderMatches = () => {
+        if(this.props.matches.length === 0 ){
+            return (<p>Loading</p>)
+        }else return (<p>{this.props.matches}</p>)
     }
 
     render() {
@@ -61,8 +56,7 @@ class Main extends Component {
                                     <input type="file" id="file-input" onChange={this.props.initUpload} />
                                 </div>
                             </div>
-
-                            <div className="col-md-1">{JSON.stringify(this.state.celebrities)}</div>
+                            <div>{this.renderMatches}</div>
                             <div className="col-md-1">{JSON.stringify(this.props.data)}</div>
                             <div className="col-md-5">
                                 <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
