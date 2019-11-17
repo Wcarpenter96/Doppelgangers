@@ -18,9 +18,11 @@ class Main extends Component {
     componentDidMount() {
         this.props.loadData()
             .then(() => {
+                console.log('test')
                 this.setState({
                     celebrities: this.props.matches
                 })
+                console.log(celebrities)
             })
 
     }
