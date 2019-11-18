@@ -20,7 +20,7 @@ class Jumbotron extends Component {
             return (
                 <div className="container">
                     <h1 className="display-3 text-center">Profile</h1>
-                    <p className="display-6 text-center">Upload a photo to see your Doppelgangers</p>
+                    <p className="display-6 text-center"></p>
                 </div>
             );
         }
