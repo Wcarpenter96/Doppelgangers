@@ -56,7 +56,7 @@ class Main extends Component {
                                     <input type="file" id="file-input" onChange={this.props.initUpload} />
                                 </div>
                             </div>
-                            <div>{this.renderMatches}</div>
+                            <div>{this.renderMatches()}</div>
                             <div className="col-md-1">{JSON.stringify(this.props.data)}</div>
                             <div className="col-md-5">
                                 <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
