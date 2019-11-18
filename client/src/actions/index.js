@@ -63,6 +63,7 @@ export const initUpload = (user_id) => async dispatch => {
                     xhr.onreadystatechange = () => {
                         if (xhr.readyState === 4) {
                             if (xhr.status === 200) {
+                                console.log(user_id,response.url)
                                 axios.post('/api/face/search', {
                                     user_id: user_id,
                                     image_url: response.url
