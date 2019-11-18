@@ -4,7 +4,7 @@ const aws = require('aws-sdk');
 const db = require('../../../models');
 
 router.get('/sign-s3', (req, res) => {
-    // const user_id = "5dcc7dc7877529002a7e7acf"
+    const user_id = "5dcc7dc7877529002a7e7acf"
     const S3_BUCKET = process.env.S3_BUCKET || 'friend-finder-assets';
     aws.config.region = 'us-west-1';
     const s3 = new aws.S3();
@@ -27,16 +27,16 @@ router.get('/sign-s3', (req, res) => {
             signedRequest: data,
             url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
         };
-        // db.User.findByIdAndUpdate(user_id, { url: returnData.url })
-        //     .then(function (result) {
-        //         console.log('user url updated')
-        //         res.write(JSON.stringify(returnData));
-        //         res.end();
-        //     })
-        //     .catch(function (e) {
-        //         res.write(JSON.stringify(e));
-        //         res.end();
-        //     });
+        db.User.findByIdAndUpdate(user_id, { url: returnData.url })
+            .then(function (result) {
+                console.log('user url updated')
+                res.write(JSON.stringify(returnData));
+                res.end();
+            })
+            .catch(function (e) {
+                res.write(JSON.stringify(e));
+                res.end();
+            });
     });
 });
 
