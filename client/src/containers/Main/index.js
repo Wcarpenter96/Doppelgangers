@@ -17,7 +17,7 @@ class Main extends Component {
     }
 
     renderMatches = () => {
-        if (!this.props.matches) {
+        if (this.props.matches.length === 0) {
             console.log('loading',this.props.matches)
             return <p>Loading...</p>
         } else if (this.props.matches[0].url){
