@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Header from './../../containers/Header.js';
 import Jumbotron from './../../containers/Jumbotron.js';
 import './main.css'
-import { Card, ListGroup, Row, Col } from 'react-bootstrap';
+import { Card, ListGroup, Row, Col, CardDeck } from 'react-bootstrap';
 
 
 class Main extends Component {
@@ -23,17 +23,13 @@ class Main extends Component {
             console.log(this.props.matches)
             return (this.props.matches.map((match, index) => {
                 return (
-                    <Row key={index}>
-                        <Col>
-                            <Card style={{ width: '15rem' }} className='mb-3'>
-                                <Card.Img variant="top" src={match.celeb.url} />
-                                <Card.Header>{match.celeb.name}</Card.Header>
-                                <ListGroup variant="flush">
-                                    <ListGroup.Item>Similarity Level: {match.confidence}</ListGroup.Item>
-                                </ListGroup>
-                            </Card>
-                        </Col>
-                    </Row>
+                    <Card key={index} style={{ width: '15rem' }} className='mb-3'>
+                        <Card.Img variant="top" src={match.celeb.url} />
+                        <Card.Header>{match.celeb.name}</Card.Header>
+                        <ListGroup variant="flush">
+                            <ListGroup.Item>Similarity Level: {match.confidence}</ListGroup.Item>
+                        </ListGroup>
+                    </Card>
                 )
             }))
         }
@@ -58,8 +54,10 @@ class Main extends Component {
                             <img style={{ border: "1px solid gray", width: "100%" }} id="preview" src={this.props.data.url ? this.props.data.url : this.props.image_url} alt="profile_image" />
                             <input type="file" id="file-input" onChange={this.props.initUpload} />
                         </div>
-                        <div className="col-md-10">
-                            {this.renderMatches()}
+                        <div className="col-md-9 offset-md-1">
+                            <CardDeck>
+                                {this.renderMatches()}
+                            </CardDeck>
                         </div>
                     </div>
                     <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
