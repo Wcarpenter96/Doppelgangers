@@ -17,7 +17,7 @@ class Main extends Component {
     }
 
     renderMatches = () => {
-        if (!this.props.matches) {
+        if (this.props.matches.length === 0) {
             console.log('loading',this.props.matches)
             return <p>Loading...</p>
         } else if (this.props.matches[0].url){
@@ -64,7 +64,7 @@ class Main extends Component {
                     <div className="row">
                         <div className="col-md-2">
                             <h3 id="status" className="text-center">Please Select A File</h3>
-                            <img style={{ border: "1px solid gray", width: "100%" }} src={this.props.data.url ? this.props.data.url : this.props.image_url} alt="profile_image" />
+                            <img style={{ border: "1px solid gray", width: "100%" }} src={this.props.image_url} alt="profile_image" />
                             <input type="file" id="file-input" onChange={() => this.props.initUpload(this.props.data._id)} />
                         </div>
                         <div className="col-md-9 offset-md-1">
