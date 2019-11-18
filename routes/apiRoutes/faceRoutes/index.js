@@ -113,7 +113,6 @@ router.post('/search', async function (req, res) {
 
 router.get('/user/:id', async function (req, res) {
    const user_id = req.params.id
-   // const user_id = '5dcc7dc7877529002a7e7acf'
    try {
       let user = await db.Match.find({ user: user_id }).populate('celeb')
       const matches = []

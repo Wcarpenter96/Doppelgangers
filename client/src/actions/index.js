@@ -48,8 +48,8 @@ export const loadData = () => async dispatch => {
         });
 }
 
-export const initUpload = () => async dispatch => {
-    const user_id = '5dcc7dc7877529002a7e7acf'
+export const initUpload = (user_id) => async dispatch => {
+    // const user_id = '5dcc7dc7877529002a7e7acf'
     try {
         const files = document.getElementById('file-input').files;
         const file = files[0];

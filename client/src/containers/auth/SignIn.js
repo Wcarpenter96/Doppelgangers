@@ -74,7 +74,7 @@ class SignIn extends Component {
             </div>
             <div className='col-md-1'></div>
             <div className='col-md-5 text-center'>
-                <img src='https://media.giphy.com/media/dyjL2vi0AocEEE6ZkA/giphy.gif' />
+                <img src='https://media.giphy.com/media/dyjL2vi0AocEEE6ZkA/giphy.gif' alt='arrow'/>
             </div>
             <div className='col-md-2'></div>
             </div>

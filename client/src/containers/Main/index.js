@@ -6,10 +6,11 @@ import { connect } from 'react-redux';
 import Header from './../../containers/Header.js';
 import Jumbotron from './../../containers/Jumbotron.js';
 import './main.css'
-import { Card, ListGroup, Row, Col, CardDeck } from 'react-bootstrap';
+import { Card, ListGroup, CardDeck } from 'react-bootstrap';
 
 
 class Main extends Component {
+
 
     componentDidMount() {
         this.props.loadData()
@@ -45,14 +46,12 @@ class Main extends Component {
                     <Jumbotron />
                 </div>
 
-                <h1 className='text-center'>Your Profile Page</h1>
-
                 <div className="container">
                     <div className="row">
                         <div className="col-md-2">
                             <h3 id="status" className="text-center">Please Select A File</h3>
-                            <img style={{ border: "1px solid gray", width: "100%" }} id="preview" src={this.props.data.url ? this.props.data.url : this.props.image_url} alt="profile_image" />
-                            <input type="file" id="file-input" onChange={this.props.initUpload} />
+                            <img style={{ border: "1px solid gray", width: "100%" }} src={this.props.data.url ? this.props.data.url : this.props.image_url} alt="profile_image" />
+                            <input type="file" id="file-input" onChange={() => this.props.initUpload(this.props.data._id)} />
                         </div>
                         <div className="col-md-9 offset-md-1">
                             <CardDeck>

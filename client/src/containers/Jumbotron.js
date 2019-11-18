@@ -12,15 +12,15 @@ class Jumbotron extends Component {
         if (!this.props.auth) {
             return (
                 <div className="container">
-                    <h1 className="display-3 text-center">Which Celebs Looks Like You?</h1>
-                    <p className="display-6 text-center">Please Sign In or Sign Up!</p>
+                    <h1 className="display-3 text-center">Which Celebs Look Like You?</h1>
+                    <p className="display-6 text-center">Please Sign In or Sign Up</p>
                 </div>
             );
         } else {
             return (
                 <div className="container">
-                    <h1 className="display-3 text-center">See Similar Faces</h1>
-                    <p className="display-6 text-center">Good Luck!!!</p>
+                    <h1 className="display-3 text-center">Profile</h1>
+                    <p className="display-6 text-center">Upload a photo to see your Doppelgangers</p>
                 </div>
             );
         }

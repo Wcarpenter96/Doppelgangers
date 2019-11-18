@@ -12,9 +12,9 @@ class Header extends Component {
                     <li className="nav-item active">
                         <Link to='/signout' className="nav-link">Sign Out</Link>
                     </li >
-                    <li className="nav-item active">
+                    {/* <li className="nav-item active">
                         <Link to='/alluser' className="nav-link">All Users & Their Best Matche</Link>
-                    </li >
+                    </li > */}
                 </ul>
             );
         } else {
