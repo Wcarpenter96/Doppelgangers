@@ -17,9 +17,14 @@ class Main extends Component {
     }
 
     renderMatches = () => {
-        if(this.props.matches.length === 0 ){
-            return (<p>Loading</p>)
-        }else return (<p>{this.props.matches}</p>)
+        if (this.props.matches.length === 0) {
+            console.log('loading'){
+                return <p>Loading</p>
+            }
+        } else {
+            console.log(this.props.matches)
+            return <p>{JSON.stringify(this.props.matches)}</p>
+        }
     }
 
     render() {
