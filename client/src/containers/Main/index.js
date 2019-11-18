@@ -28,7 +28,7 @@ class Main extends Component {
                         <Card.Img variant="top" src={match.url} />
                         <Card.Header>{match.celeb}</Card.Header>
                         <ListGroup variant="flush">
-                            <ListGroup.Item>Similarity Level: {match.confidence}</ListGroup.Item>
+                            <ListGroup.Item>{match.confidence}%</ListGroup.Item>
                         </ListGroup>
                     </Card>
                 )
@@ -41,7 +41,7 @@ class Main extends Component {
                         <Card.Img variant="top" src={match.celeb.url} />
                         <Card.Header>{match.celeb.name}</Card.Header>
                         <ListGroup variant="flush">
-                            <ListGroup.Item>Similarity Level: {match.confidence}</ListGroup.Item>
+                            <ListGroup.Item>{match.confidence}%</ListGroup.Item>
                         </ListGroup>
                     </Card>
                 )
