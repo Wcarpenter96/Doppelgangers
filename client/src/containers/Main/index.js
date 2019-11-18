@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import Header from './../../containers/Header.js';
 import Jumbotron from './../../containers/Jumbotron.js';
 import './main.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, ListGroup, Row, Col } from 'react-bootstrap';
 
 
