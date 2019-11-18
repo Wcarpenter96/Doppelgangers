@@ -5,24 +5,37 @@ import { turnoffErrorMessage } from './../../actions';
 import { connect } from 'react-redux';
 import Header from './../../containers/Header.js';
 import Jumbotron from './../../containers/Jumbotron.js';
-import { stat } from 'fs';
 import './main.css'
+import { Card, ListGroup, Row, Col } from 'react-bootstrap';
 
 
 class Main extends Component {
 
     componentDidMount() {
         this.props.loadData()
-
     }
 
     renderMatches = () => {
         if (this.props.matches.length === 0) {
             console.log('loading')
-                return <p>Loading</p>
+            return <p>Loading...</p>
         } else {
             console.log(this.props.matches)
-            return <p>{JSON.stringify(this.props.matches)}</p>
+            return (this.props.matches.map((match, index) => {
+                return (
+                    <Row key={index}>
+                        <Col>
+                            <Card style={{ width: '15rem' }} className='mb-3'>
+                                <Card.Img variant="top" src={match.celeb.url} />
+                                <Card.Header>{match.celeb.name}</Card.Header>
+                                <ListGroup variant="flush">
+                                    <ListGroup.Item>Similarity Level: {match.confidence}</ListGroup.Item>
+                                </ListGroup>
+                            </Card>
+                        </Col>
+                    </Row>
+                )
+            }))
         }
     }
 
@@ -35,109 +48,25 @@ class Main extends Component {
                     <Header />
                     <Jumbotron />
                 </div>
-                <container>
-                    <h1 className='text-center'>Your Profile Page</h1>
-                    <br></br>
-                    <br></br>
-                    <hr />
-                    <br></br>
-                    <br></br>
-                    <div className="Container">
-                        <div className="row">
-                            <div className="col-md-2"></div>
-                            <div className="col-md-2">
-                                <div className="row">
-                                    <h3 id="status" className="text-center">Please Select A File</h3>
-                                </div>
 
-                                <br />
-                                <br />
+                <h1 className='text-center'>Your Profile Page</h1>
 
-                                <div className="row text-center">
-                                    <img style={{ border: "1px solid gray", width: "100%" }} id="preview" src={this.props.data.url ? this.props.data.url : this.props.image_url} alt="profile_image" />
-
-                                    <br />
-                                    <input type="file" id="file-input" onChange={this.props.initUpload} />
-                                </div>
-                            </div>
-                            <div>{this.renderMatches()}</div>
-                            <div className="col-md-1">{JSON.stringify(this.props.data)}</div>
-                            <div className="col-md-5">
-                                <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
-                                    <div className="offset-md-2">{this.props.errorMessage}</div>
-                                </div>
-                            </div>
-
-
-                            <div className="col-md-5">
-
-                                <div className="row">
-                                    <div className="col-md-12">
-                                        <h3 className='text-center'>Your Similar Celeberties</h3>
-                                    </div>
-                                </div>
-
-                                <br />
-                                <br />
-
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        <div className="card">
-                                            <img src="" className="card-img-top" />
-                                            <div className="card-body text-center">
-                                                <h5 className="card-title"></h5>
-                                                <p className="card-text">Confidence:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="card">
-                                            <img src="https://thenypost.files.wordpress.com/2016/12/608558788.jpg?quality=90&strip=all&w=618&h=410&crop=1" className="card-img-top" />
-                                            <div className="card-body text-center">
-                                                <h5 className="card-title">Your Similar Celeb1</h5>
-                                                <p className="card-text">Confidence:</p>
-                                                <a href="#" className="btn btn-warning">See the Image of your Celeb!</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <br />
-                                <br />
-                                <br />
-
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        <div className="card">
-                                            <img src="https://i.ytimg.com/vi/8xfnjYYy2lM/maxresdefault.jpg" className="card-img-top" />
-                                            <div className="card-body text-center">
-                                                <h5 className="card-title">Your Similar Celeb1</h5>
-                                                <p className="card-text">Confidence:</p>
-                                                <a href="#" className="btn btn-warning">See the Image of your Celeb!</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="card">
-                                            <img src="https://nyppagesix.files.wordpress.com/2018/04/gettyimages-901333660.jpg?quality=90&strip=all&w=618&h=410&crop=1" className="card-img-top" />
-                                            <div className="card-body text-center">
-                                                <h5 className="card-title">Your Similar Celeb1</h5>
-                                                <p className="card-text">Confidence:</p>
-                                                <a href="#" className="btn btn-warning">See the Image of your Celeb!</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <div className="col-md-2"></div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-2">
+                            <h3 id="status" className="text-center">Please Select A File</h3>
+                            <img style={{ border: "1px solid gray", width: "100%" }} id="preview" src={this.props.data.url ? this.props.data.url : this.props.image_url} alt="profile_image" />
+                            <input type="file" id="file-input" onChange={this.props.initUpload} />
+                        </div>
+                        <div className="col-md-10">
+                            {this.renderMatches()}
                         </div>
                     </div>
-                </container>
-                <br></br>
-                <br></br>
-                <br></br>
+                    <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
+                        <div className="offset-md-2">{this.props.errorMessage}</div>
+                    </div>
+                </div>
+
             </div>
         )
     }
