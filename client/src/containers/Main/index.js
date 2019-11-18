@@ -19,7 +19,7 @@ class Main extends Component {
     renderMatches = () => {
         if (this.props.matches.length === 0) {
             console.log(this.props.matches)
-            return <p>Hi ${this.props.data.email}! Upload a photo to see your Doppelgangers.</p>
+            return <p>Hi {this.props.data.email}! Upload a photo to see your Doppelgangers.</p>
         } else if (this.props.matches[0].url){
             console.log(this.props.matches)
             return (this.props.matches.map((match, index) => {
