@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Header from './../../containers/Header.js';
 import Jumbotron from './../../containers/Jumbotron.js';
 import './main.css'
-import { Card, ListGroup, Row, Col } from 'react-bootstrap';
+// import { Card, ListGroup, Row, Col } from 'react-bootstrap';
 
 
 class Main extends Component {
@@ -23,17 +23,13 @@ class Main extends Component {
             console.log(this.props.matches)
             return (this.props.matches.map((match, index) => {
                 return (
-                    <Row key={index}>
-                        <Col>
-                            <Card style={{ width: '15rem' }} className='mb-3'>
-                                <Card.Img variant="top" src={match.celeb.url} />
-                                <Card.Header>{match.celeb.name}</Card.Header>
-                                <ListGroup variant="flush">
-                                    <ListGroup.Item>Similarity Level: {match.confidence}</ListGroup.Item>
-                                </ListGroup>
-                            </Card>
-                        </Col>
-                    </Row>
+                    <div className="row" key={index}>
+                        <div className="col">
+                            <img src={match.celeb.url} />
+                            <h1>{match.celeb.name}</h1>
+                            <p>Similarity Level: {match.confidence}</p>
+                        </div>
+                    </div>
                 )
             }))
         }
