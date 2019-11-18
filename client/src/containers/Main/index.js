@@ -20,6 +20,19 @@ class Main extends Component {
         if (!this.props.matches) {
             console.log('loading',this.props.matches)
             return <p>Loading...</p>
+        } else if (this.props.matches[0].url){
+            console.log(this.props.matches)
+            return (this.props.matches.map((match, index) => {
+                return (
+                    <Card key={index} style={{ width: '15rem' }} className='mb-3'>
+                        <Card.Img variant="top" src={match.url} />
+                        <Card.Header>{match.celeb}</Card.Header>
+                        <ListGroup variant="flush">
+                            <ListGroup.Item>Similarity Level: {match.confidence}</ListGroup.Item>
+                        </ListGroup>
+                    </Card>
+                )
+            }))
         } else {
             console.log(this.props.matches)
             return (this.props.matches.map((match, index) => {
@@ -33,6 +46,7 @@ class Main extends Component {
                     </Card>
                 )
             }))
+
         }
     }
 
