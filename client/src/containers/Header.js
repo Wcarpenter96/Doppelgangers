@@ -31,14 +31,14 @@ class Header extends Component {
         if (this.props.auth) {
             return (
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <Link to='/main' className="navbar-brand">Doppleganger</Link>
+                    <Link to='/main' className="navbar-brand">Doppelgangers</Link>
                     {this.renderLinks()}
                 </nav>
             )
         } else {
             return (
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <Link to='/' className="navbar-brand">Doppleganger</Link>
+                    <Link to='/' className="navbar-brand">Doppelgangers</Link>
                     {this.renderLinks()}
                 </nav>
             )

@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "Doppelgangers",
   "version": "0.1.0",
-  "description": "Mern Demo",
+  "description": "discover your top five celebrity look-alikes",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
