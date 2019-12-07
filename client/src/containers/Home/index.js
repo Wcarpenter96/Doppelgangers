@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './index.css'
 

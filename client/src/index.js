@@ -9,10 +9,8 @@ import 'semantic-ui-css/semantic.min.css';
 import App from './containers/App';
 import SignUp from './containers/auth/SignUp';
 import SignIn from './containers/auth/SignIn';
-import SignOut from './containers/auth/SignOut';
 import Main from './containers/Main';
 import Home from './containers/Home';
-import allUsers from './containers/allUsers'
 
 
 
@@ -34,8 +32,7 @@ ReactDOM.render(
                 <Route exact path='/signin' component={SignIn} />   
                 <Route exact path='/signout' component={Home}/>
                 <Route exact path='/main' component={Main}/>       
-                <Route exact path='/' component={Home}/>    
-                <Route exact path='/alluser' component={allUsers}/>    
+                <Route exact path='/' component={Home}/>   
             </App>
         </Router>
     </Provider>
