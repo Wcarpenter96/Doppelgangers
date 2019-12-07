@@ -7,7 +7,7 @@ const CelebCard = matches => (
     <Card.Content>
       <Card.Header>{matches.celeb.name}</Card.Header>
       <Card.Content extra>
-      <p>{matches.confidence}%</p>
+      <a>{matches.confidence}%</a>
     </Card.Content>
     </Card.Content>
   </Card>
