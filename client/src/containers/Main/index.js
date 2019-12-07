@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { initUpload } from './../../actions';
 import { loadData } from './../../actions';
-import { turnoffErrorMessage } from './../../actions';
 import { connect } from 'react-redux';
 import Header from './../../containers/Header.js';
 import Jumbotron from './../../containers/Jumbotron.js';
@@ -93,4 +92,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { initUpload, turnoffErrorMessage, loadData })(Main);
+export default connect(mapStateToProps, { initUpload, loadData })(Main);
