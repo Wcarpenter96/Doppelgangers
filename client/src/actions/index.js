@@ -1,9 +1,8 @@
 import * as types from './types';
 import axios from 'axios';
-import { CloudWatchLogs } from 'aws-sdk';
 
 
-export const signup = (formprops, callback) => async dispatch => {
+export const signUp = (formprops, callback) => async dispatch => {
     try {
         const response = await axios.post('/api/auth/signup', formprops);
         dispatch({ type: types.AUTH_USER, payload: response.data.token });
@@ -94,10 +93,5 @@ export const initUpload = (user_id) => async dispatch => {
     }
 }
 
-export const turnoffErrorMessage = () => dispatch => {
-    setTimeout(() => {
-        dispatch({ type: types.TURNOFF_ERROR })
-    }, 2000);
-}
 
 

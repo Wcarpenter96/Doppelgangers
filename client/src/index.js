@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
+import 'semantic-ui-css/semantic.min.css';
 
-import App from './components/App';
+import App from './containers/App';
 import SignUp from './containers/auth/SignUp';
 import SignIn from './containers/auth/SignIn';
 import SignOut from './containers/auth/SignOut';
