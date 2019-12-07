@@ -6,9 +6,9 @@ const CelebCard = matches => (
     <Image src={matches.celeb.url} wrapped ui={false} />
     <Card.Content>
       <Card.Header>{matches.celeb.name}</Card.Header>
-      <Card.Description>
-        {matches.celeb.confidence}%
-      </Card.Description>
+      <Card.Content extra>
+      <p>{matches.confidence}%</p>
+    </Card.Content>
     </Card.Content>
   </Card>
 )
