@@ -127,19 +127,6 @@ router.get('/user/:id', async function (req, res) {
    }
 })
 
-router.delete(':user_id', async function (req, res) {
-   try {
-      await db.User.findByIdAndDelete(user_id);
-      await db.Match.finByIdAndDelete({ user: _id })
-      res.json({ success: true })
-   }
-   catch (e) {
-      res.json(e);
-   }
-   
-   
-})
-
 router.get('/all', async function (req, res) {
    try {
       const data = []
