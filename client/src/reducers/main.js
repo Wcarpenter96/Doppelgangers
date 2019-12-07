@@ -1,5 +1,5 @@
-import { UPLOAD_PICTURE, UPLOAD_PICTURE_ERROR, TURNOFF_ERROR, DATA, DATA_ERROR } from './../actions/types';
-import image from './../containers/images/default.jpg'
+import { UPLOAD_PICTURE, UPLOAD_PICTURE_ERROR, DATA, DATA_ERROR } from './../actions/types';
+import image from './../images/default.jpg'
 
 const INITIAL_STATE = {
     image_url: image,
@@ -17,8 +17,6 @@ export default function (state = INITIAL_STATE, action) {
             };
         case UPLOAD_PICTURE_ERROR:
             return { ...state, errorMessage: action.payload };
-        case TURNOFF_ERROR:
-            return { ...state, errorMessage: '' }
         case DATA:
             return { ...state, data: action.payload.user, matches: action.payload.celebs };
         case DATA_ERROR:

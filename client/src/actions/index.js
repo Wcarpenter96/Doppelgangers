@@ -37,7 +37,6 @@ export const loadData = () => async dispatch => {
         headers: { authorization: localStorage.getItem('token') }
     })
         .then(function (res) {
-            console.log(res)
             dispatch({ type: types.DATA, payload: res.data });
         })
         .catch(function (e) {
