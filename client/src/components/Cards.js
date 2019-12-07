@@ -1,9 +1,9 @@
 import React from 'react'
-import { Card, Image } from 'semantic-ui-react'
+import { Card, Image, Placeholder } from 'semantic-ui-react'
 
 const CelebCard = matches => (
   <Card>
-    <Image src={matches[0].url ? matches.url : matches.celeb.url} wrapped ui={false} />
+    <Image src={matches.celeb.url ? matches.celeb.url : <Placeholder><Placeholder.Image square /></Placeholder>} wrapped ui={false} />
     <Card.Content>
       <Card.Header>{matches.celeb.name}</Card.Header>
     </Card.Content>
