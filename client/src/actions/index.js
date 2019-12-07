@@ -65,9 +65,9 @@ export const initUpload = (user_id) => async dispatch => {
                                     user_id: user_id,
                                     image_url: response.url
                                 })
-                                    .then(function (res) {
+                                    .then(async function (res) {
                                         console.log(res)
-                                        dispatch({ type: types.UPLOAD_PICTURE, payload: { url: response.url, matches: res.data } })
+                                        await dispatch({ type: types.UPLOAD_PICTURE, payload: { url: response.url, matches: res.data } })
 
                                     })
                                     .catch(function (e) {
