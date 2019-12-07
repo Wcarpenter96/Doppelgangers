@@ -1,8 +1,8 @@
 import Cards from "./../components/Cards";
 import { connect } from 'react-redux';
 
-function mapStateToProps({ state }) {
-    return { matches: state.main.matches };
+function mapStateToProps({ matches }) {
+    return { matches: matches };
 }
 
 export default connect(mapStateToProps, null)(Cards);
