@@ -3,7 +3,7 @@ import { Card, Image } from 'semantic-ui-react'
 
 const CelebCard = matches => (
   <Card>
-    <Image src={matches.celeb.url} wrapped ui={false} />
+    <Image src={matches[0].url ? matches.url : matches.celeb.url} wrapped ui={false} />
     <Card.Content>
       <Card.Header>{matches.celeb.name}</Card.Header>
     </Card.Content>
