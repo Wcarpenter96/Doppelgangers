@@ -12,7 +12,7 @@ export default function (state = INITIAL_STATE, action) {
     switch (action.type) {
         case UPLOAD_PICTURE:
             return {
-                ...state, image_url: action.payload.url,
+                ...state, data: action.payload.data,
                 matches: action.payload.matches, errorMessage: ''
             };
         case UPLOAD_PICTURE_ERROR:
