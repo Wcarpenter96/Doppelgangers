@@ -13,7 +13,6 @@ class Main extends Component {
 
     renderMatches = () => {
         if (this.props.matches.length === 0) {
-            console.log(this.props.matches)
             return <p>Hi {this.props.data.email}! Upload a photo to see your Doppelgangers.</p>
         } else {
             console.log(this.props.matches)
@@ -26,7 +25,6 @@ class Main extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <div>
                 <div>
