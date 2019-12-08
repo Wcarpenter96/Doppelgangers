@@ -35,12 +35,6 @@ module.exports = {
     },
 
     userData: async (req, res) => {
-        // const { email } = req.user
-        // db.User.find({ email : email })
-        // .then(response => {
-        //     console.log(response)
-        //     res.send(response)
-        // }) 
         console.log('userdata hit')
         const user = _.pick(req.user, 'email', '_id', 'url')
         const { matches } = req.user;
