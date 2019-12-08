@@ -29,12 +29,11 @@ module.exports = {
             res.status(404).json({ e });
         }
     },
+    
     signIn: (req, res) => {
-        // res.send("Hooray!");    
-        // console.log(req.user);
-        console.log('sign in good')
         res.send({ token: tokenForUser(req.user) });
     },
+
     userData: async (req, res) => {
         // const { email } = req.user
         // db.User.find({ email : email })
