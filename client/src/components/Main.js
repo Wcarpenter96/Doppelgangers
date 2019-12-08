@@ -27,7 +27,7 @@ class Main extends Component {
         console.log(this.props);
         console.log(this.props.user)
         console.log(this.props.image_url)
-        
+        let { user } = this.props;
         return (
             <div>
                 <div>
@@ -39,7 +39,7 @@ class Main extends Component {
                     <div className="row">
                         <div className="col-md-2">
                             <h3 id="status" className="text-center">Please Select A File</h3>
-                            <img style={{ border: "1px solid gray", width: "100%" }} src={this.props.user.image_url ? this.props.user.image_url : this.props.image_url} alt="profile_image" />
+                            <img style={{ border: "1px solid gray", width: "100%" }} src={user ? user.image_url : this.props.image_url} alt="profile_image" />
                             <input type="file" id="file-input" onChange={() => this.props.initUpload(this.props.data._id)} />
                         </div>
                         <div className="col-md-9 offset-md-1">
