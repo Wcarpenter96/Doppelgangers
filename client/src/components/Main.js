@@ -24,6 +24,10 @@ class Main extends Component {
     }
 
     render() {
+        console.log(this.props);
+        console.log(this.props.user)
+        console.log(this.props.image_url)
+        
         return (
             <div>
                 <div>
