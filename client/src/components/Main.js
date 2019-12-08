@@ -27,6 +27,9 @@ class Main extends Component {
 
     render() {
         const { data } = this.props;
+        console.log('data=',data)
+        console.log('data[image_url]=',data[image_url])
+        console.log('data.data.user.url=',data.data.user.url)
         return (
             <div>
                 <div>
