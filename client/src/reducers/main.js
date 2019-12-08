@@ -18,7 +18,7 @@ export default function (state = INITIAL_STATE, action) {
         case UPLOAD_PICTURE_ERROR:
             return { ...state, errorMessage: action.payload };
         case DATA:
-            return { ...state, data: action.payload.user, matches: action.payload.celebs };
+            return { ...state, data: action.payload.user, matches: action.payload.celebs, image_url: action.payload.url };
         case DATA_ERROR:
             return { ...state, errorMessage: action.payload }
         default:
