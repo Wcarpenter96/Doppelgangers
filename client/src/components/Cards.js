@@ -3,7 +3,7 @@ import { Card, Image, Placeholder } from 'semantic-ui-react'
 
 const CelebCard = matches => (
   <Card>
-    <Image src={matches.celeb.url ? matches.celeb.url
+    <Image src={matches.celeb.url ? JSON.stringify(matches.celeb.url)
       :
       <Card.Content>
         <Placeholder><Placeholder.Image square /></Placeholder>
