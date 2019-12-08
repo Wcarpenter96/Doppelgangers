@@ -7,9 +7,9 @@ const CelebCard = matches => {
   console.log("matches.url=", matches.url)
   return (
     < Card >
-    <Image src={matches.celeb.url} wrapped ui={false} />
+    <Image src={matches.celeb.url ? matches.celeb.url : Matches.url} wrapped ui={false} />
     <Card.Content>
-      <Card.Header>{matches.celeb.name}</Card.Header>
+      <Card.Header>{matches.celeb.name ? matches.celeb.name : Matches.celeb}</Card.Header>
     </Card.Content>
     <Card.Content extra>
       <p>{matches.confidence}%</p>
