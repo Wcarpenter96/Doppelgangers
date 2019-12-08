@@ -3,11 +3,6 @@ import { initUpload } from '../actions';
 import { loadData } from '../actions';
 import { connect } from 'react-redux';
 import Main from "./../components/Main";
-// import Header from './Header.js';
-// import Jumbotron from './Jumbotron.js';
-// import { Card, ListGroup, CardDeck } from 'react-bootstrap';
-
-
 // class Main extends Component {
 
 
