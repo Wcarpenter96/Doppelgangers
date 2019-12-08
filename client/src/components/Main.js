@@ -26,8 +26,8 @@ class Main extends Component {
 
     render() {
         console.log(this.props.data);
-        console.log(this.props.data['image_url']);
-        let image = this.props.data['image_url'] ? this.props.data['image_url'] : defaultImage;
+        console.log(this.props.data["image_url"]);
+        let image = this.props.data["image_url"] ? this.props.data['image_url'] : defaultImage;
         return (
             <div>
                 <div>
@@ -39,7 +39,7 @@ class Main extends Component {
                     <div className="row">
                         <div className="col-md-2">
                             <h3 id="status" className="text-center">Please Select A File</h3>
-                            <img style={{ border: "1px solid gray", width: "100%" }} src={this.props.data.image_url ? this.props.data.image_url : image} alt="profile_image" />
+                            <img style={{ border: "1px solid gray", width: "100%" }} src={this.props.data.url ? this.props.data.url : image} alt="profile_image" />
                             <input type="file" id="file-input" onChange={() => this.props.initUpload(this.props.data._id)} />
                         </div>
                         <div className="col-md-9 offset-md-1">
