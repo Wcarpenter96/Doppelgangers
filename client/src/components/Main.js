@@ -42,7 +42,7 @@ class Main extends Component {
                     <div className="row">
                         <div className="col-md-2">
                             <h3 id="status" className="text-center">Please Select A File</h3>
-                            <img style={{ border: "1px solid gray", width: "100%" }} src={data[image_url] ? data[image_url] : data.user.url} alt="profile_image" />
+                            <img style={{ border: "1px solid gray", width: "100%" }} src={data['image_url'] ? data['image_url'] : data.user.url} alt="profile_image" />
                             <input type="file" id="file-input" onChange={() => this.props.initUpload(this.props.data._id)} />
                         </div>
                         <div className="col-md-9 offset-md-1">
