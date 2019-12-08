@@ -15,7 +15,6 @@ class Main extends Component {
         if (this.props.matches.length === 0) {
             return <p>Hi {this.props.data.email}! Upload a photo to see your Doppelgangers.</p>
         } else {
-            console.log(this.props.matches)
             return (this.props.matches.map((match, index) => {
                 return (
                     <CelebCard key={index} {...match} />
