@@ -25,9 +25,9 @@ router.get('/sign-s3', (req, res) => {
         }
         const returnData = {
             signedRequest: data,
-            image_url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
+            url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
         };
-        db.User.findByIdAndUpdate(user_id, { image_url: returnData.url })
+        db.User.findByIdAndUpdate(user_id, { url: returnData.url })
             .then(function (result) {
                 console.log('user url updated')
                 res.write(JSON.stringify(returnData));
