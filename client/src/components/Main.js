@@ -26,8 +26,8 @@ class Main extends Component {
 
     render() {
         console.log(this.props.data);
-        console.log(this.props.data["image_url"]);
-        let image = this.props.data["image_url"] ? this.props.data['image_url'] : defaultImage;
+        console.log(this.props.data.image_url);
+        let image = this.props.data.image_url ? this.props.data.image_url : defaultImage;
         return (
             <div>
                 <div>
