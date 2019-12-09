@@ -61,7 +61,7 @@ export const initUpload = (user_id) => async dispatch => {
                             if (xhr.status === 200) {
                                 axios.post('/api/face/search', {
                                     user_id: user_id,
-                                    url: response.url
+                                    image_url: response.url
                                 })
                                     .then(async function (res) {
                                         console.log(res)
