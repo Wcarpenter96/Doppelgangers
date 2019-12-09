@@ -61,10 +61,10 @@ export const initUpload = (user_id) => async dispatch => {
                             if (xhr.status === 200) {
                                 axios.post('/api/face/search', {
                                     user_id: user_id,
-                                    image_url: response.url
+                                    url: response.url
                                 })
                                     .then(async function (res) {
-                                        console.log(JSON.parse(res.config.data).image_url)
+                                        console.log(JSON.parse(res.config.data))
                                         await dispatch({ type: types.UPLOAD_PICTURE, payload: { matches: res.data, data: JSON.parse(res.config.data) } })
 
                                     })

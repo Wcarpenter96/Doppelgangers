@@ -67,7 +67,7 @@ router.post('/add', function (req, res) {
 router.post('/search', async function (req, res) {
 
    const user_id = req.body.user_id
-   const image_url = req.body.image_url
+   const image_url = req.body.url
 
    const searchData = {
       api_key: api_key,
