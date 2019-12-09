@@ -117,9 +117,9 @@ router.get('/user/:id', async function (req, res) {
       let user = await db.Match.find({ user: user_id }).populate('celeb')
       const matches = []
       for (let i = 0; i < user.length; i++) {
-         const { name, url } = user[i].celeb
+         const { name, image_url } = user[i].celeb
          const { confidence } = user[i]
-         matches.push({ name, url, confidence })
+         matches.push({ name, image_url, confidence })
       }
       res.json(matches)
    } catch (e) {
