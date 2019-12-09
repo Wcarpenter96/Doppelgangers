@@ -36,7 +36,7 @@ module.exports = {
 
     userData: async (req, res) => {
         console.log('userdata hit')
-        const user = _.pick(req.user, 'email', '_id', 'url')
+        const user = _.pick(req.user, 'email', '_id', 'image_url')
         const { matches } = req.user;
         const celebs = [];
         try {

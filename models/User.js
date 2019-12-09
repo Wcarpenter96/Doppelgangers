@@ -14,7 +14,7 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    url: String,
+    image_url: String,
     matches: [
         {
             type: Schema.Types.ObjectId,
