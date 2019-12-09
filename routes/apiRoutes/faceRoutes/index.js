@@ -67,12 +67,12 @@ router.post('/add', function (req, res) {
 router.post('/search', async function (req, res) {
 
    const user_id = req.body.user_id
-   const image_url = req.body.image_url
+   const url = req.body.url
 
    const searchData = {
       api_key: api_key,
       api_secret: api_secret,
-      image_url: image_url,
+      url: url,
       outer_id: outer_id,
       return_result_count: 5
    }
@@ -85,7 +85,7 @@ router.post('/search', async function (req, res) {
          const celebs = [];
          async function find() {
             try {
-               await db.User.findByIdAndUpdate(user_id,{image_url: image_url, matches : []})
+               await db.User.findByIdAndUpdate(user_id,{url: url, matches : []})
                for (let i = 0; i < results.length; i++) {
                   let celeb = await db.Celeb.find({ token: results[i].face_token })
                   await db.Match.create({
@@ -117,9 +117,9 @@ router.get('/user/:id', async function (req, res) {
       let user = await db.Match.find({ user: user_id }).populate('celeb')
       const matches = []
       for (let i = 0; i < user.length; i++) {
-         const { name, image_url } = user[i].celeb
+         const { name, url } = user[i].celeb
          const { confidence } = user[i]
-         matches.push({ name, image_url, confidence })
+         matches.push({ name, url, confidence })
       }
       res.json(matches)
    } catch (e) {

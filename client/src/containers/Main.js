@@ -6,7 +6,7 @@ import Main from "./../components/Main";
 
 function mapStateToProps(state) {
     return {
-        image_url: state.main.image_url,
+        url: state.main.url,
         matches: state.main.matches,
         errorMessage: state.main.errorMessage,
         data: state.main.data,
