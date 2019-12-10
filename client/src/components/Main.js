@@ -45,9 +45,11 @@ class Main extends Component {
                             </Card.Group>
                         </div>
                     </div>
-                    <div className="alert alert-danger" role="alert" style={{ opacity: this.props.errorMessage ? 1 : 0, marginBottom: 10 }}>
-                        <div className="offset-md-2">{this.props.errorMessage}</div>
-                    </div>
+                    <Message
+                        negative
+                        hidden={this.props.errorMessage ? false : true}>
+                        <Message.Header>{this.props.errorMessage}</Message.Header>
+                    </Message>
                 </div>
 
             </div>
