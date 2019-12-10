@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card } from "semantic-ui-react";
+import { Card, Message } from "semantic-ui-react";
 import Header from './../containers/Header';
 import Jumbotron from './../containers/Jumbotron';
 import CelebCard from './../containers/Cards';
